@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Amara {
     private static final String BOARDER = "_".repeat(60);
 
@@ -14,5 +16,9 @@ public class Amara {
 
     String exit() {
         return this.wrapText("Bye. Hope to see you again soon!");
+    }
+
+    String echo(String sentence) {
+        return this.wrapText(sentence);
     }
 }
