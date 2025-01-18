@@ -8,6 +8,7 @@ public class Deadline extends Task {
 
     @Override
     public String toString() {
-        return String.format("[D][%s] %s (by: %s)", super.status ? "X" : " ", this.dueDate);
+        return String.format("[D][%s] %s (by: %s)", super.status ? "X" : " ",
+                super.taskDescription, this.dueDate);
     }
 }

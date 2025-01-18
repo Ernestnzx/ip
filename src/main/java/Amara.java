@@ -27,7 +27,8 @@ public class Amara {
 
     String addToList(Task task) {
         this.tasks.add(task);
-        return this.wrapText(String.format("added: %s", task.getTaskDescription()));
+        return this.wrapText(String.format("Got it. I've added this task:\n"
+                + "  %s\nNow you have %d tasks in the list.", task, this.tasks.size()));
     }
 
     String markTask(int index) {

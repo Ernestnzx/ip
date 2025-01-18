@@ -8,22 +8,20 @@ public class Main {
         System.out.println(amara.greet());
         while (!isExit) {
             String reply = "";
-            String command = scanner.nextLine().strip();
+            String command = scanner.nextLine();
             String commandString = getFirstWord(command);
             String commandParams = removeFirstWord(command);
-            if (commandString.equals("bye")) {
+            if (commandString.equalsIgnoreCase("bye")) {
                 reply = amara.exit();
                 isExit = true;
-            } else if (commandString.equals("list")) {
+            } else if (commandString.equalsIgnoreCase("list")) {
                 reply = amara.getList();
-            } else if (commandString.equals("mark")) {
+            } else if (commandString.equalsIgnoreCase("mark")) {
                 reply = amara.markTask(Integer.parseInt(commandParams));
-            } else if (commandString.equals("unmark")) {
+            } else if (commandString.equalsIgnoreCase("unmark")) {
                 reply = amara.unmarkTask(Integer.parseInt(commandParams));
             } else {
-                if (commandString.equals("todo")) {
-                    reply = amara.addToList(new ToDo(commandParams));
-                }
+                reply = amara.addToList(TaskFactory.getTask(commandString, commandParams));
             }
             System.out.println(reply);
         }
