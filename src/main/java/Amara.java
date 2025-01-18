@@ -39,7 +39,7 @@ public class Amara {
     String unmarkTask(int index) {
         Task task = this.tasks.get(index - 1);
         task.unmarkTask();
-        return this.wrapText(String.format("OK, I've marked this taskas not done yet:\n  [ ] %s", task.getDescription()));
+        return this.wrapText(String.format("OK, I've marked this task as not done yet:\n  [ ] %s", task.getDescription()));
     }
 
     String getList() {
