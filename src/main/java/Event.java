@@ -1,36 +1,13 @@
-public class Event implements Task {
-    private String taskDescription;
+public class Event extends Task {
     private String dueDate;
-    private boolean status; 
     
     Event(String taskDescription, String dueDate) {
-        this.taskDescription = taskDescription;
+        super(taskDescription, false);
         this.dueDate = dueDate;
-        this.status = false;
-    }
-
-    @Override
-    public String getTaskDescription() {
-        return this.taskDescription;
-    }
-
-    @Override
-    public void markTask() {
-        this.status = true;
-    }
-
-    @Override
-    public void unmarkTask() {
-        this.status = false;
-    }
-
-    @Override
-    public boolean getStatus() {
-        return this.status;
     }
 
     @Override
     public String toString() {
-        return String.format("[E][%s] %s (by: %s)", this.status ? "X" : " ", this.taskDescription, this.dueDate);
+        return String.format("[E][%s] %s (by: %s)", super.status ? "X" : " ", super.taskDescription, this.dueDate);
     }
 }

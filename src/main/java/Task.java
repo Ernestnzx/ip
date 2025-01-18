@@ -1,9 +1,25 @@
-public interface Task {
-    void markTask();
+public abstract class Task {
+    protected String taskDescription;
+    protected boolean status;
 
-    void unmarkTask();
+    Task(String taskDescription, boolean status) {
+        this.taskDescription = taskDescription;
+        this.status = status;
+    }
 
-    boolean getStatus();
+    public String getTaskDescription() {
+        return this.taskDescription;
+    }
 
-    String getTaskDescription();
+    public void markTask() {
+        this.status = true;
+    }
+
+    public void unmarkTask() {
+        this.status = false;
+    }
+
+    public boolean getStatus() {
+        return this.status;
+    }
 }
