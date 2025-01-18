@@ -6,12 +6,15 @@ public class Main {
         Amara amara = new Amara();
         System.out.println(amara.greet());
         while (true) {
-            String command = scanner.nextLine();
+            String command = scanner.nextLine().strip();
             if (command.equals("bye")) {
                 System.out.println(amara.exit());
                 break;
+            } else if (command.equals("list")) {
+                System.out.println(amara.getList());
+            } else {
+                System.out.println(amara.addToList(command));
             }
-            System.out.println(amara.echo(command));
         }
         scanner.close();
     }
