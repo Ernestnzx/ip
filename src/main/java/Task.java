@@ -1,25 +1,9 @@
-public class Task {
-    private String taskDescription;
-    private boolean status; 
-    
-    Task(String taskDescription) {
-        this.taskDescription = taskDescription;
-        this.status = false;
-    }
+public interface Task {
+    void markTask();
 
-    String getDescription() {
-        return this.taskDescription;
-    }
+    void unmarkTask();
 
-    void markTask() {
-        this.status = true;
-    }
+    boolean getStatus();
 
-    void unmarkTask() {
-        this.status = false;
-    }
-
-    boolean getStatus() {
-        return this.status;
-    }
+    String getTaskDescription();
 }

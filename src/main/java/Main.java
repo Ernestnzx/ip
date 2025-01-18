@@ -7,23 +7,34 @@ public class Main {
         boolean isExit = false;
         System.out.println(amara.greet());
         while (!isExit) {
-            String command = scanner.nextLine().strip();
-            String[] tokens = command.split(" ");
             String reply = "";
-            if (tokens[0].equals("bye")) {
+            String command = scanner.nextLine().strip();
+            String commandString = getFirstWord(command);
+            String commandParams = removeFirstWord(command);
+            if (commandString.equals("bye")) {
                 reply = amara.exit();
                 isExit = true;
-            } else if (tokens[0].equals("list")) {
+            } else if (commandString.equals("list")) {
                 reply = amara.getList();
-            } else if (tokens[0].equals("mark")) {
-                reply = amara.markTask(Integer.parseInt(tokens[1]));
-            } else if (tokens[0].equals("unmark")) {
-                reply = amara.unmarkTask(Integer.parseInt(tokens[1]));
+            } else if (commandString.equals("mark")) {
+                reply = amara.markTask(Integer.parseInt(commandParams));
+            } else if (commandString.equals("unmark")) {
+                reply = amara.unmarkTask(Integer.parseInt(commandParams));
             } else {
-                reply = amara.addToList(command);
+                if (commandString.equals("todo")) {
+                    reply = amara.addToList(new ToDo(commandParams));
+                }
             }
             System.out.println(reply);
         }
         scanner.close();
+    }
+
+    static String getFirstWord(String userInput) {
+        return userInput.trim().split("\\s+")[0];
+    }
+
+    static String removeFirstWord(String userInput) {
+        return userInput.replace(getFirstWord(userInput), "").trim();
     }
 }

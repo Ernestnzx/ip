@@ -25,21 +25,21 @@ public class Amara {
         return this.wrapText(sentence);
     }
 
-    String addToList(String taskDescription) {
-        this.tasks.add(new Task(taskDescription));
-        return this.wrapText(String.format("added: %s", taskDescription));
+    String addToList(Task task) {
+        this.tasks.add(task);
+        return this.wrapText(String.format("added: %s", task.getTaskDescription()));
     }
 
     String markTask(int index) {
         Task task = this.tasks.get(index - 1);
         task.markTask();
-        return this.wrapText(String.format("Nice! I've marked this task as done:\n  [x] %s", task.getDescription()));
+        return this.wrapText(String.format("Nice! I've marked this task as done:\n  %s", task));
     }
 
     String unmarkTask(int index) {
         Task task = this.tasks.get(index - 1);
         task.unmarkTask();
-        return this.wrapText(String.format("OK, I've marked this task as not done yet:\n  [ ] %s", task.getDescription()));
+        return this.wrapText(String.format("OK, I've marked this task as not done yet:\n  %s", task));
     }
 
     String getList() {
@@ -47,9 +47,7 @@ public class Amara {
         String taskList = "Here are the tasks in your list:\n";
         int listSize = this.tasks.size();
         for (int i = 0; i < listSize; i++) {
-            boolean status = this.tasks.get(i).getStatus();
-            String taskDescription = this.tasks.get(i).getDescription();
-            taskList += i + 1 + ". [" + (status ? "X" : " ") + "] " + taskDescription;
+            taskList += i + 1 + ". " + tasks.get(i);
             if (i < listSize - 1) {
                 taskList += "\n";
             }
