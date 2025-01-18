@@ -5,6 +5,6 @@ public class ToDo extends Task {
 
     @Override
     public String toString() {
-        return String.format("[D][%s] %s", this.status ? "X" : " ", this.taskDescription);
+        return String.format("[T][%s] %s", this.status ? "X" : " ", this.taskDescription);
     }
 }
