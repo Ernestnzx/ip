@@ -86,6 +86,8 @@ public class Amara {
                 } else {
                     throw AmaraException.invalidCommand();
                 }
+            } catch (NumberFormatException e) {
+                reply = AmaraException.numberFormatting().getMessage();
             } catch (IndexOutOfBoundsException e) {
                 reply = AmaraException.indexOutOfBounds().getMessage();
             } catch (AmaraException e) {

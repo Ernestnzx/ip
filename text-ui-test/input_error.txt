@@ -17,6 +17,8 @@ event CM4288 meeting /from Wednesday 15:00 /to
 event CM4288 meeting /to 16:00 /from Wednesday 15:00 
 event CM4288 meeting /from Wednesday 15:00 /to 16:00 
 list
+mark
+mark ;)
 mark 0
 mark 4
 list
