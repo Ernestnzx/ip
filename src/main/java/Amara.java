@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Amara {
     private ArrayList<Task> tasks;
 
-    private static final String BOARDER = "_".repeat(60);
+    private static final String BOARDER = "=".repeat(60);
 
     Amara() {
         this.tasks = new ArrayList<Task>();
@@ -18,7 +18,7 @@ public class Amara {
     }
 
     String exit() {
-        return this.wrapText("Bye. Hope to see you again soon!");
+        return this.wrapText("Bye. Hope to see you again soon! <3");
     }
 
     String echo(String sentence) {
