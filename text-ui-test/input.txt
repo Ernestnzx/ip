@@ -14,4 +14,7 @@ mark 6
 list
 unmark 1
 list
+delete 6
+delete 4
+list
 bye

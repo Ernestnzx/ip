@@ -89,10 +89,10 @@ OOPS!!! The word that you entered is not a number or empty. :(
 OOPS!!! The word that you entered is not a number or empty. :(
 ======================================================================
 ======================================================================
-OOPS!!! The index you want to mark/unmark is out of bounds. :(
+OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
 ======================================================================
 ======================================================================
-OOPS!!! The index you want to mark/unmark is out of bounds. :(
+OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
 ======================================================================
 ======================================================================
 Here are the tasks in your list:
@@ -117,6 +117,38 @@ Here are the tasks in your list:
 1. [T][X] read CM4215 lecture notes
 2. [D][X] CM3221 tutorial (by: Monday 16:00)
 3. [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+======================================================================
+======================================================================
+OOPS!!! The word that you entered is not a number or empty. :(
+======================================================================
+======================================================================
+OOPS!!! The word that you entered is not a number or empty. :(
+======================================================================
+======================================================================
+OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
+======================================================================
+======================================================================
+OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
+======================================================================
+======================================================================
+Here are the tasks in your list:
+1. [T][X] read CM4215 lecture notes
+2. [D][X] CM3221 tutorial (by: Monday 16:00)
+3. [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+======================================================================
+======================================================================
+Noted. I've removed this task:
+  [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+Now you have 2 tasks in the list.
+======================================================================
+======================================================================
+Noted. I've removed this task:
+  [T][X] read CM4215 lecture notes
+Now you have 1 tasks in the list.
+======================================================================
+======================================================================
+Here are the tasks in your list:
+1. [D][X] CM3221 tutorial (by: Monday 16:00)
 ======================================================================
 ======================================================================
 Bye. Hope to see you again soon! <3

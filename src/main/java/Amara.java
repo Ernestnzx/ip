@@ -47,6 +47,13 @@ public class Amara {
         return String.format("OK, I've marked this task as not done yet:\n  %s", task);
     }
 
+    private String deleteTask(int index) {
+        Task task = this.tasks.get(index - 1);
+        this.tasks.remove(index - 1);
+        return String.format("Noted. I've removed this task:\n"
+                + "  %s\nNow you have %d tasks in the list.", task, this.tasks.size());
+    }
+
     private String getList() {
         // Using StringBuilder if speed is needed.
         String taskList = "Here are the tasks in your list:\n";
@@ -83,6 +90,8 @@ public class Amara {
                             commandString.equalsIgnoreCase("deadline") ||
                             commandString.equalsIgnoreCase("event")){
                     reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
+                } else if (commandString.equalsIgnoreCase("delete")) {
+                    reply = this.deleteTask(Integer.parseInt(commandParams));
                 } else {
                     throw AmaraException.invalidCommand();
                 }
