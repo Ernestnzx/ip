@@ -77,23 +77,31 @@ public class Amara {
             String commandString = Amara.getFirstWord(command);
             String commandParams = Amara.removeFirstWord(command);
             try {
-                if (commandString.equalsIgnoreCase("bye")) {
-                    reply = this.exit();
-                    isExit = true;
-                } else if (commandString.equalsIgnoreCase("list")) {
-                    reply = this.getList();
-                } else if (commandString.equalsIgnoreCase("mark")) {
-                    reply = this.markTask(Integer.parseInt(commandParams));
-                } else if (commandString.equalsIgnoreCase("unmark")) {
-                    reply = this.unmarkTask(Integer.parseInt(commandParams));
-                } else if (commandString.equalsIgnoreCase("todo") ||
-                            commandString.equalsIgnoreCase("deadline") ||
-                            commandString.equalsIgnoreCase("event")){
-                    reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
-                } else if (commandString.equalsIgnoreCase("delete")) {
-                    reply = this.deleteTask(Integer.parseInt(commandParams));
-                } else {
-                    throw AmaraException.invalidCommand();
+                command = commandString.toLowerCase();
+                switch (command) {
+                    case "bye":
+                        reply = this.exit();
+                        isExit = true;
+                        break;
+                    case "list":
+                        reply = this.getList();
+                        break;
+                    case "mark":
+                        reply = this.markTask(Integer.parseInt(commandParams));
+                        break;
+                    case "unmark":
+                        reply = this.unmarkTask(Integer.parseInt(commandParams));
+                        break;
+                    case "todo":
+                    case "deadline":
+                    case "event":
+                        reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
+                        break;
+                    case "delete":
+                        reply = this.deleteTask(Integer.parseInt(commandParams));
+                        break;
+                    default:
+                        throw AmaraException.invalidCommand();
                 }
             } catch (NumberFormatException e) {
                 reply = AmaraException.numberFormatting().getMessage();

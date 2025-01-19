@@ -1,15 +1,16 @@
 public class TaskFactory {
     public static Task getTask(String commandString, String commandParams) throws AmaraException {
-        if (commandString.equalsIgnoreCase("todo")) {
-            return TaskFactory.getToDo(commandString, commandParams);
+        String command = commandString.toLowerCase();
+        switch (command) {
+            case "todo":
+                return TaskFactory.getToDo(commandString, commandParams);
+            case "deadline":
+                return TaskFactory.getDeadlines(commandString, commandParams);
+            case "event":
+                return TaskFactory.getEvent(commandString, commandParams);
+            default:
+                throw AmaraException.invalidCommand();
         }
-        if (commandString.equalsIgnoreCase("deadline")) {
-            return TaskFactory.getDeadlines(commandString, commandParams);
-        }
-        if (commandString.equalsIgnoreCase("event")) {
-            return TaskFactory.getEvent(commandString, commandParams);
-        }
-        throw AmaraException.invalidCommand();
     }
 
     private static Task getToDo(String commandString, String commandParams) throws AmaraException {
