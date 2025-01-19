@@ -5,7 +5,7 @@ public class Amara {
     private ArrayList<Task> tasks;
     private Scanner scanner;
 
-    private static final String BOARDER = "=".repeat(60);
+    private static final String BOARDER = "=".repeat(70);
 
     Amara() {
         this.tasks = new ArrayList<Task>();
@@ -17,34 +17,34 @@ public class Amara {
     }
 
     private String greet() {
-        return this.wrapText("Hello I'm Amara\nWhat can I do for you?");
+        return "Hello I'm Amara\nWhat can I do for you?";
     }
 
     private String exit() {
-        return this.wrapText("Bye. Hope to see you again soon! <3");
+        return "Bye. Hope to see you again soon! <3";
     }
 
     @SuppressWarnings("unused")
     private String echo(String sentence) {
-        return this.wrapText(sentence);
+        return sentence;
     }
 
     private String addToList(Task task) {
         this.tasks.add(task);
-        return this.wrapText(String.format("Got it. I've added this task:\n"
-                + "  %s\nNow you have %d tasks in the list.", task, this.tasks.size()));
+        return String.format("Got it. I've added this task:\n"
+                + "  %s\nNow you have %d tasks in the list.", task, this.tasks.size());
     }
 
     private String markTask(int index) {
         Task task = this.tasks.get(index - 1);
         task.markTask();
-        return this.wrapText(String.format("Nice! I've marked this task as done:\n  %s", task));
+        return String.format("Nice! I've marked this task as done:\n  %s", task);
     }
 
     private String unmarkTask(int index) {
         Task task = this.tasks.get(index - 1);
         task.unmarkTask();
-        return this.wrapText(String.format("OK, I've marked this task as not done yet:\n  %s", task));
+        return String.format("OK, I've marked this task as not done yet:\n  %s", task);
     }
 
     private String getList() {
@@ -57,32 +57,42 @@ public class Amara {
                 taskList += "\n";
             }
         }
-        return this.wrapText(taskList);
+        return taskList;
     }
 
     public void start() {
         boolean isExit = false;
-        System.out.println(this.greet());
+        System.out.println(this.wrapText(this.greet()));
         while (!isExit) {
             String reply = "";
-            String command = scanner.nextLine();
-            String commandString = getFirstWord(command);
-            String commandParams = removeFirstWord(command);
-            if (commandString.equalsIgnoreCase("bye")) {
-                reply = this.exit();
-                isExit = true;
-            } else if (commandString.equalsIgnoreCase("list")) {
-                reply = this.getList();
-            } else if (commandString.equalsIgnoreCase("mark")) {
-                reply = this.markTask(Integer.parseInt(commandParams));
-            } else if (commandString.equalsIgnoreCase("unmark")) {
-                reply = this.unmarkTask(Integer.parseInt(commandParams));
-            } else {
-                reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
+            String command = this.scanner.nextLine();
+            // System.out.println(command);
+            String commandString = Amara.getFirstWord(command);
+            String commandParams = Amara.removeFirstWord(command);
+            try {
+                if (commandString.equalsIgnoreCase("bye")) {
+                    reply = this.exit();
+                    isExit = true;
+                } else if (commandString.equalsIgnoreCase("list")) {
+                    reply = this.getList();
+                } else if (commandString.equalsIgnoreCase("mark")) {
+                    reply = this.markTask(Integer.parseInt(commandParams));
+                } else if (commandString.equalsIgnoreCase("unmark")) {
+                    reply = this.unmarkTask(Integer.parseInt(commandParams));
+                } else if (commandString.equalsIgnoreCase("todo") ||
+                            commandString.equalsIgnoreCase("deadline") ||
+                            commandString.equalsIgnoreCase("event")){
+                    reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
+                } else {
+                    throw AmaraException.invalidCommand();
+                }
+            } catch (IndexOutOfBoundsException e) {
+                reply = AmaraException.indexOutOfBounds().getMessage();
+            } catch (AmaraException e) {
+                reply = e.getMessage();
             }
-            System.out.println(reply);
+            System.out.println(this.wrapText(reply));
         }
-        scanner.close();
     }
 
     private static String getFirstWord(String userInput) {

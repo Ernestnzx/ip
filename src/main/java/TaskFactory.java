@@ -1,17 +1,41 @@
 public class TaskFactory {
-    public static Task getTask(String commandString, String commandParams) {
+    public static Task getTask(String commandString, String commandParams) throws AmaraException {
         if (commandString.equalsIgnoreCase("todo")) {
-            return new ToDo(commandParams);
+            return TaskFactory.getToDo(commandString, commandParams);
         }
         if (commandString.equalsIgnoreCase("deadline")) {
-            String[] params = commandParams.split("/by");
-            return new Deadline(params[0].strip(), params[1].strip());
+            return TaskFactory.getDeadlines(commandString, commandParams);
         }
         if (commandString.equalsIgnoreCase("event")) {
-            String[] params = commandParams.split("/from");
-            String[] duration = params[1].split("/to");
-            return new Event(params[0].strip(), duration[0].strip(), duration[1].strip());
+            return TaskFactory.getEvent(commandString, commandParams);
         }
-        return null;
+        throw AmaraException.invalidCommand();
+    }
+
+    private static Task getToDo(String commandString, String commandParams) throws AmaraException {
+        if (commandParams.isBlank()) {
+            throw AmaraException.invalidParameters(commandString);
+        }
+        return new ToDo(commandParams);
+    }
+
+    private static Task getDeadlines(String commandString, String commandParams) throws AmaraException {
+        String[] params = commandParams.split("/by");
+        if (params.length != 2 || params[0].isBlank() || params[1].isBlank()) {
+            throw AmaraException.invalidParameters(commandString);
+        }
+        return new Deadline(params[0].strip(), params[1].strip());
+    }
+
+    private static Task getEvent(String commandString, String commandParams) throws AmaraException {
+        String[] params = commandParams.split("/from");
+        if (params.length != 2 || params[0].isBlank() || params[1].isBlank()) {
+            throw AmaraException.invalidParameters(commandString);
+        }
+        String[] duration = params[1].split("/to");
+        if (duration.length != 2 || duration[0].isBlank() || duration[1].isBlank()) {
+            throw AmaraException.invalidParameters(commandString);
+        }
+        return new Event(params[0].strip(), duration[0].strip(), duration[1].strip());
     }
 }

@@ -1,0 +1,27 @@
+chemistry is best major :)
+todo
+todo read CM4215 lecture notes
+deadline
+deadline /by Monday 16:00
+deadline CM3221 tutorial 
+deadline CM3221 tutorial /by Monday 16:00
+event
+event /from
+event /to
+event /from /to
+event /to /from
+event CM4288 meeting
+event CM4288 meeting /from Wednesday 15:00
+event CM4288 meeting /to 16:00
+event CM4288 meeting /from Wednesday 15:00 /to
+event CM4288 meeting /to 16:00 /from Wednesday 15:00 
+event CM4288 meeting /from Wednesday 15:00 /to 16:00 
+list
+mark 0
+mark 4
+list
+mark 1
+mark 2
+mark 3
+list
+bye
