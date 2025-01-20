@@ -1,12 +1,12 @@
 public class TaskFactory {
     public static Task getTask(String commandString, String commandParams) throws AmaraException {
-        String command = commandString.toLowerCase();
+        Command command = Command.fromString(commandString);
         switch (command) {
-            case "todo":
+            case TODO:
                 return TaskFactory.getToDo(commandString, commandParams);
-            case "deadline":
+            case DEADLINE:
                 return TaskFactory.getDeadlines(commandString, commandParams);
-            case "event":
+            case EVENT:
                 return TaskFactory.getEvent(commandString, commandParams);
             default:
                 throw AmaraException.invalidCommand();

@@ -15,16 +15,16 @@ public class AmaraException extends Exception {
         return new AmaraException(ERROR_MESSAGE);
     }
 
-    public static AmaraException invalidParameters(String commandString) {
-        String command = commandString.toLowerCase();
-        switch (command) {
-            case "todo":
+    public static AmaraException invalidParameters(String commandString) throws AmaraException {
+        Command commandEnum = Command.fromString(commandString);
+        switch (commandEnum) {
+            case TODO:
                 return new AmaraException(String.format(FORMAT_STRING, "todo",
                         "todo", "", ""));
-            case "deadline":
+            case DEADLINE:
                 return new AmaraException(String.format(FORMAT_STRING, "deadline",
                         "deadline", "/by <time>", ""));
-            case "event":
+            case EVENT:
                 return new AmaraException(String.format(FORMAT_STRING, "event",
                         "event", "/from <start time>", "/to <end time>"));
             default:

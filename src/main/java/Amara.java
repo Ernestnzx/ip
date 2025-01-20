@@ -77,27 +77,27 @@ public class Amara {
             String commandString = Amara.getFirstWord(command);
             String commandParams = Amara.removeFirstWord(command);
             try {
-                command = commandString.toLowerCase();
-                switch (command) {
-                    case "bye":
+                Command commandEnum = Command.fromString(commandString);
+                switch (commandEnum) {
+                    case BYE:
                         reply = this.exit();
                         isExit = true;
                         break;
-                    case "list":
+                    case LIST:
                         reply = this.getList();
                         break;
-                    case "mark":
+                    case MARK:
                         reply = this.markTask(Integer.parseInt(commandParams));
                         break;
-                    case "unmark":
+                    case UNMARK:
                         reply = this.unmarkTask(Integer.parseInt(commandParams));
                         break;
-                    case "todo":
-                    case "deadline":
-                    case "event":
+                    case TODO:
+                    case DEADLINE:
+                    case EVENT:
                         reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
                         break;
-                    case "delete":
+                    case DELETE:
                         reply = this.deleteTask(Integer.parseInt(commandParams));
                         break;
                     default:
