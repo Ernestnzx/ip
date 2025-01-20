@@ -15,9 +15,8 @@ public class AmaraException extends Exception {
         return new AmaraException(ERROR_MESSAGE);
     }
 
-    public static AmaraException invalidParameters(String commandString) throws AmaraException {
-        Command commandEnum = Command.fromString(commandString);
-        switch (commandEnum) {
+    public static AmaraException invalidParameters(Command command) throws AmaraException {
+        switch (command) {
             case TODO:
                 return new AmaraException(String.format(FORMAT_STRING, "todo",
                         "todo", "", ""));

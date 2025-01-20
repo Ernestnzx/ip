@@ -95,7 +95,7 @@ public class Amara {
                     case TODO:
                     case DEADLINE:
                     case EVENT:
-                        reply = this.addToList(TaskFactory.getTask(commandString, commandParams));
+                        reply = this.addToList(TaskFactory.getTask(commandEnum, commandParams));
                         break;
                     case DELETE:
                         reply = this.deleteTask(Integer.parseInt(commandParams));
