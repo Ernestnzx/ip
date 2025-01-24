@@ -1,3 +1,7 @@
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.lang.StringBuilder;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,6 +10,7 @@ public class Amara {
     private Scanner scanner;
 
     private static final String BOARDER = "=".repeat(70);
+    private static final String FILE_PATH = "./tasklist.txt";
 
     Amara() {
         this.tasks = new ArrayList<Task>();
@@ -67,8 +72,45 @@ public class Amara {
         return taskList;
     }
 
+    private void saveList() {
+        StringBuilder stringBuilder = new StringBuilder();
+        for (Task task : this.tasks) {
+            stringBuilder.append(task.getSavedFormat() + "\n");
+        }
+        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+            writer.write(stringBuilder.toString());
+        } catch (Exception e) {
+            System.out.println(AmaraException.fileWriteException());
+        }
+    }
+
+    private void readList() {
+        String line = "";
+        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
+            while ((line = br.readLine().strip()) != null) {
+                String[] tokens = line.split(",");
+                boolean status = tokens[1].equals("1") ? true : false;
+                switch (tokens[0]) {
+                    case "T":
+                        this.tasks.add(new ToDo(status, tokens[2]));
+                        break;
+                    case "D":
+                        this.tasks.add(new Deadline(status, tokens[2], tokens[3]));
+                        break;
+                    case "E":
+                    this.tasks.add(new Event(status, tokens[2], tokens[3], tokens[4]));
+                        break;
+                    default:
+                        throw AmaraException.invalidCommand();
+                }
+            }
+        } catch (Exception e) {
+        }
+    }
+
     public void start() {
         boolean isExit = false;
+        this.readList();
         System.out.println(this.wrapText(this.greet()));
         while (!isExit) {
             String reply = "";
@@ -112,6 +154,7 @@ public class Amara {
             }
             System.out.println(this.wrapText(reply));
         }
+        this.saveList();
     }
 
     private static String getFirstWord(String userInput) {
