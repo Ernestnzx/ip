@@ -6,6 +6,7 @@ public class AmaraException extends Exception {
             + "%s parameter(s) is/are empty!\n  Usage: %s <description> %s %s";
     private static final String OUT_OF_BOUNDS = "OOPS!!! The index you want to "
             + "mark/unmark/delete is out of bounds. :(";
+    private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the moment, try again later. :(";
 
     AmaraException(String message) {
         super(message);
@@ -37,5 +38,9 @@ public class AmaraException extends Exception {
 
     public static AmaraException numberFormatting() {
         return new AmaraException(NUMBER_FORMAT);
+    }
+
+    public static AmaraException fileWriteException() {
+        return new AmaraException(WRITE_FILE);
     }
 }

@@ -22,4 +22,6 @@ public abstract class Task {
     public boolean getStatus() {
         return this.status;
     }
+
+    public abstract String getSavedFormat();
 }
