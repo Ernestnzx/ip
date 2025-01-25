@@ -2,20 +2,20 @@ chemistry is best major :)
 todo
 todo read CM4215 lecture notes
 deadline
-deadline /by Monday 16:00
+deadline /by 2025-01-31 1600
 deadline CM3221 tutorial 
-deadline CM3221 tutorial /by Monday 16:00
+deadline CM3221 tutorial /by 2025-01-31 1600
 event
 event /from
 event /to
 event /from /to
 event /to /from
 event CM4288 meeting
-event CM4288 meeting /from Wednesday 15:00
-event CM4288 meeting /to 16:00
-event CM4288 meeting /from Wednesday 15:00 /to
-event CM4288 meeting /to 16:00 /from Wednesday 15:00 
-event CM4288 meeting /from Wednesday 15:00 /to 16:00 
+event CM4288 meeting /from 2025-02-02 1500
+event CM4288 meeting /to 1600
+event CM4288 meeting /from 2025-02-02 1500 /to
+event CM4288 meeting /to 2025-02-02 1600 /from 2025-02-02 1500 
+event CM4288 meeting /from 2025-02-02 1500 /to 2025-02-02 1600 
 list
 mark
 mark ;)

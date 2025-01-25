@@ -1,15 +1,19 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class Event extends Task {
-    private String startDate;
-    private String endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private static final String stringFormat = "%s,%d,%s,%s,%s";
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
     
-    Event(String taskDescription, String startDate, String endDate) {
+    Event(String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, false);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    Event(boolean status, String taskDescription, String startDate, String endDate) {
+    Event(boolean status, String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, status);
         this.startDate = startDate;
         this.endDate = endDate;
@@ -24,6 +28,8 @@ public class Event extends Task {
     @Override
     public String toString() {
         return String.format("[E][%s] %s (from: %s to: %s)", super.status ? "X" : " ", 
-                super.taskDescription, this.startDate, this.endDate);
+                super.taskDescription,
+                this.startDate.format(dateFormatter),
+                this.endDate.format(dateFormatter));
     }
 }
