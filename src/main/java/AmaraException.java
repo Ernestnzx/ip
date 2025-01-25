@@ -2,11 +2,13 @@ public class AmaraException extends Exception {
     private static final String ITS_THE_END = "OWARI DAAAAA!!!!!!";
     private static final String ERROR_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means. :(";
     private static final String NUMBER_FORMAT = "OOPS!!! The word that you entered is not a number or empty. :(";
+    private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the moment, try again later. :(";
     private static final String FORMAT_STRING = "OOPS!!! The format for "
             + "%s parameter(s) is/are empty!\n  Usage: %s <description> %s %s";
     private static final String OUT_OF_BOUNDS = "OOPS!!! The index you want to "
             + "mark/unmark/delete is out of bounds. :(";
-    private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the moment, try again later. :(";
+    private static final String DATE_TIME_FORMAT = "OOPS!!! I don't understand the time/date format " 
+            + "that you have given me :(\n  (Format: YYYY-MM-DD HHMM)";
 
     AmaraException(String message) {
         super(message);
@@ -42,5 +44,9 @@ public class AmaraException extends Exception {
 
     public static AmaraException fileWriteException() {
         return new AmaraException(WRITE_FILE);
+    }
+
+    public static AmaraException dateTimeFormatException() {
+        return new AmaraException(DATE_TIME_FORMAT);
     }
 }

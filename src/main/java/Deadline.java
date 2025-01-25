@@ -1,13 +1,17 @@
-public class Deadline extends Task {
-    private String dueDate;
-    private static final String stringFormat = "%s,%d,%s,%s";
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-    Deadline(String taskDescription, String dueDate) {
+public class Deadline extends Task {
+    private LocalDateTime dueDate;
+    private static final String stringFormat = "%s,%d,%s,%s";
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+
+    Deadline(String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, false);
         this.dueDate = dueDate;
     }
 
-    Deadline(boolean status,String taskDescription, String dueDate) {
+    Deadline(boolean status,String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, status);
         this.dueDate = dueDate;
     }
@@ -21,6 +25,7 @@ public class Deadline extends Task {
     @Override
     public String toString() {
         return String.format("[D][%s] %s (by: %s)", super.status ? "X" : " ",
-                super.taskDescription, this.dueDate);
+                super.taskDescription,
+                this.dueDate.format(dateFormatter));
     }
 }

@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class TaskFactory {
     public static Task getTask(Command commandEnum, String commandParams) throws AmaraException {
         switch (commandEnum) {
@@ -24,7 +27,12 @@ public class TaskFactory {
         if (params.length != 2 || params[0].isBlank() || params[1].isBlank()) {
             throw AmaraException.invalidParameters(commandEnum);
         }
-        return new Deadline(params[0].strip(), params[1].strip());
+        try {
+            LocalDateTime dateTime = parseDateTime(params[1].strip());
+            return new Deadline(params[0].strip(), dateTime);
+        } catch (Exception e){
+            throw AmaraException.dateTimeFormatException(); 
+        }
     }
 
     private static Task getEvent(Command commandEnum, String commandParams) throws AmaraException {
@@ -36,6 +44,21 @@ public class TaskFactory {
         if (duration.length != 2 || duration[0].isBlank() || duration[1].isBlank()) {
             throw AmaraException.invalidParameters(commandEnum);
         }
-        return new Event(params[0].strip(), duration[0].strip(), duration[1].strip());
+        try {
+            LocalDateTime fromDateTime = parseDateTime(duration[0].strip());
+            LocalDateTime toDateTime = parseDateTime(duration[1].strip());
+            return new Event(params[0].strip(), fromDateTime, toDateTime);
+        } catch (Exception e) {
+            throw AmaraException.dateTimeFormatException();
+        }
+    }
+
+    private static LocalDateTime parseDateTime(String dateTime) throws AmaraException {
+        try {
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
+            return LocalDateTime.parse(dateTime, formatter);
+        } catch (Exception e) {
+            throw AmaraException.dateTimeFormatException();
+        }
     }
 }

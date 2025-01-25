@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.FileReader;
 import java.lang.StringBuilder;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -63,6 +64,9 @@ public class Amara {
         // Using StringBuilder if speed is needed.
         String taskList = "Here are the tasks in your list:\n";
         int listSize = this.tasks.size();
+        if (listSize == 0) {
+            taskList += "<You have no tasks, you may rest for now...>";
+        }
         for (int i = 0; i < listSize; i++) {
             taskList += i + 1 + ". " + tasks.get(i);
             if (i < listSize - 1) {
@@ -95,10 +99,11 @@ public class Amara {
                         this.tasks.add(new ToDo(status, tokens[2]));
                         break;
                     case "D":
-                        this.tasks.add(new Deadline(status, tokens[2], tokens[3]));
+                        this.tasks.add(new Deadline(status, tokens[2], LocalDateTime.parse(tokens[3])));
                         break;
                     case "E":
-                    this.tasks.add(new Event(status, tokens[2], tokens[3], tokens[4]));
+                        this.tasks.add(new Event(status, tokens[2],
+                                LocalDateTime.parse(tokens[3]), LocalDateTime.parse(tokens[4])));
                         break;
                     default:
                         throw AmaraException.invalidCommand();

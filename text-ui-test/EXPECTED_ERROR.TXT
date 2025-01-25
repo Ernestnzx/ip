@@ -28,7 +28,7 @@ OOPS!!! The format for deadline parameter(s) is/are empty!
 ======================================================================
 ======================================================================
 Got it. I've added this task:
-  [D][ ] CM3221 tutorial (by: Monday 16:00)
+  [D][ ] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
 Now you have 2 tasks in the list.
 ======================================================================
 ======================================================================
@@ -73,14 +73,14 @@ OOPS!!! The format for event parameter(s) is/are empty!
 ======================================================================
 ======================================================================
 Got it. I've added this task:
-  [E][ ] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+  [E][ ] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 Now you have 3 tasks in the list.
 ======================================================================
 ======================================================================
 Here are the tasks in your list:
 1. [T][ ] read CM4215 lecture notes
-2. [D][ ] CM3221 tutorial (by: Monday 16:00)
-3. [E][ ] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+2. [D][ ] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
+3. [E][ ] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 OOPS!!! The word that you entered is not a number or empty. :(
@@ -97,8 +97,8 @@ OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
 ======================================================================
 Here are the tasks in your list:
 1. [T][ ] read CM4215 lecture notes
-2. [D][ ] CM3221 tutorial (by: Monday 16:00)
-3. [E][ ] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+2. [D][ ] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
+3. [E][ ] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 Nice! I've marked this task as done:
@@ -106,17 +106,17 @@ Nice! I've marked this task as done:
 ======================================================================
 ======================================================================
 Nice! I've marked this task as done:
-  [D][X] CM3221 tutorial (by: Monday 16:00)
+  [D][X] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 Nice! I've marked this task as done:
-  [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+  [E][X] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 Here are the tasks in your list:
 1. [T][X] read CM4215 lecture notes
-2. [D][X] CM3221 tutorial (by: Monday 16:00)
-3. [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+2. [D][X] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
+3. [E][X] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 OOPS!!! The word that you entered is not a number or empty. :(
@@ -133,12 +133,12 @@ OOPS!!! The index you want to mark/unmark/delete is out of bounds. :(
 ======================================================================
 Here are the tasks in your list:
 1. [T][X] read CM4215 lecture notes
-2. [D][X] CM3221 tutorial (by: Monday 16:00)
-3. [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+2. [D][X] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
+3. [E][X] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 Noted. I've removed this task:
-  [E][X] CM4288 meeting (from: Wednesday 15:00 to: 16:00)
+  [E][X] CM4288 meeting (from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)
 Now you have 2 tasks in the list.
 ======================================================================
 ======================================================================
@@ -148,7 +148,7 @@ Now you have 1 tasks in the list.
 ======================================================================
 ======================================================================
 Here are the tasks in your list:
-1. [D][X] CM3221 tutorial (by: Monday 16:00)
+1. [D][X] CM3221 tutorial (by: Jan 31 2025, 4:00 PM)
 ======================================================================
 ======================================================================
 Bye. Hope to see you again soon! <3
