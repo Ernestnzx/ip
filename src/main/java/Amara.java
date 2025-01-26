@@ -15,21 +15,21 @@ public class Amara {
     private ArrayList<Task> tasks;
     private Storage storage;
     private Ui ui;
-    private static final String FILE_PATH = "./taskfile.txt";
+    private static final String FILE_PATH = "./data/taskfile.txt";
 
     /**
      * Creates a new {@code Amara} bot with a instantiated 
      * {@code Task} list if a valid file format is given.
      */
     Amara() {
-        this.storage = new Storage(Amara.FILE_PATH);
         this.ui = new Ui(Amara.FILE_PATH);
         try {
+            this.storage = new Storage(Amara.FILE_PATH);
             this.tasks = this.storage.readList();
-        } catch (IOException e) {
-            this.tasks = new ArrayList<Task>();
         } catch (AmaraException e) {
             System.out.println(e.getMessage());
+            this.tasks = new ArrayList<Task>();
+        } catch (IOException e) {
             this.tasks = new ArrayList<Task>();
         }
     }

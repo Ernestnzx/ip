@@ -1,12 +1,8 @@
 package amara.storage;
 
-import java.util.ArrayList;
-
 import amara.exceptions.AmaraException;
-import amara.task.Task;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StorageTest {

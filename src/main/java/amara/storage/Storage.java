@@ -30,8 +30,11 @@ public class Storage {
 
     public void saveList(ArrayList<Task> tasks) throws AmaraException {
         StringBuilder stringBuilder = new StringBuilder();
-        for (Task task : tasks) {
-            stringBuilder.append(task.getSavedFormat() + "\n");
+        for (int i = 0; i < tasks.size(); i++) {
+            stringBuilder.append(tasks.get(i).getSavedFormat());
+            if (i < tasks.size() - 1) {
+                stringBuilder.append("\n");
+            }
         }
         try (FileWriter writer = new FileWriter(this.filePath)) {
             writer.write(stringBuilder.toString());
@@ -64,11 +67,12 @@ public class Storage {
                     default:
                         throw new AmaraException("Format used for the file is wrong :(\n");
                 }
-                br.close();
             } catch (Exception e) {
+                br.close();
                 throw new AmaraException("Format used for the file is wrong :(\n");
             }
         }
+        br.close();
         return tasks;
     }
 }
