@@ -8,12 +8,19 @@ import amara.storage.Storage;
 import amara.task.Task;
 import amara.ui.Ui;
 
+/**
+ * The main class chatbot program {@code Amara}.
+ */
 public class Amara {
     private ArrayList<Task> tasks;
     private Storage storage;
     private Ui ui;
     private static final String FILE_PATH = "./taskfile.txt";
 
+    /**
+     * Creates a new {@code Amara} bot with a instantiated 
+     * {@code Task} list if a valid file format is given.
+     */
     Amara() {
         this.storage = new Storage(Amara.FILE_PATH);
         this.ui = new Ui(Amara.FILE_PATH);
@@ -27,6 +34,9 @@ public class Amara {
         }
     }
 
+    /**
+     * Runs the {@code Amara} chatbot.
+     */
     public void start() {
         boolean isBye = false;
         this.ui.greet();
@@ -42,6 +52,9 @@ public class Amara {
         }
     }
 
+    /**
+     * Entry point of the application.
+     */
     public static void main(String[] args) {
         new Amara().start();
     }

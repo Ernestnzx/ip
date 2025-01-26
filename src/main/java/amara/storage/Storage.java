@@ -13,6 +13,14 @@ import amara.task.Event;
 import amara.task.Task;
 import amara.task.ToDo;
 
+/**
+ * Handles the saving and loading of tasks to and from a file.
+ * <p>
+ * The {@code Storage} class is responsible for writing the task list to a file 
+ * and reading it back when needed. It uses a specified file path to locate 
+ * the storage file.
+ * </p>
+ */
 public class Storage {
     private final String filePath;
 

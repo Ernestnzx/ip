@@ -2,6 +2,13 @@ package amara.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a event task, a task with a start and end date.
+ * <p>
+ * A {@code Event} task stores a description, a completion status and a start and end date. 
+ * It can be serialized into a saveable format and displayed in a user-friendly string format.
+ * </p>
+ */
 public class Event extends Task {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
