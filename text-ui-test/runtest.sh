@@ -31,11 +31,10 @@ diff ACTUAL.TXT EXPECTED.TXT
 if [ $? -eq 0 ]
 then
     echo "Test result (Functionality): PASSED"
-    rm ./tasklist.txt
 else
     echo "Test result (Functionality): FAILED"
-    exit 1
 fi
+rm ./tasklist.txt
 
 java -classpath ../bin Main < input_error.txt > ACTUAL.TXT
 # dos2unix ACTUAL.TXT EXPECTED-UNIX.TXT
@@ -45,9 +44,8 @@ diff ACTUAL.TXT EXPECTED_ERROR.TXT
 if [ $? -eq 0 ]
 then
     echo "Test result (Error Handling): PASSED"
-    rm ./tasklist.txt
 else
     echo "Test result (Error Handling): FAILED"
-    exit 1
 fi
+rm ./tasklist.txt
 

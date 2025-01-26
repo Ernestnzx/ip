@@ -1,4 +1,4 @@
-enum Command {
+enum CommandEnum {
     BYE,
     LIST,
     MARK,
@@ -8,9 +8,9 @@ enum Command {
     EVENT,
     DELETE;
 
-    public static Command fromString(String commandString) throws AmaraException {
+    public static CommandEnum fromString(String commandString) throws AmaraException {
         try {
-            return Command.valueOf(commandString.toUpperCase());
+            return CommandEnum.valueOf(commandString.toUpperCase());
         } catch (IllegalArgumentException e) {
             throw AmaraException.invalidCommand();
         }

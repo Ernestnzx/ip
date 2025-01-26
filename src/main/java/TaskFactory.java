@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class TaskFactory {
-    public static Task getTask(Command commandEnum, String commandParams) throws AmaraException {
+    public static Task getTask(CommandEnum commandEnum, String commandParams) throws AmaraException {
         switch (commandEnum) {
             case TODO:
                 return TaskFactory.getToDo(commandEnum, commandParams);
@@ -15,14 +15,14 @@ public class TaskFactory {
         }
     }
 
-    private static Task getToDo(Command commandEnum, String commandParams) throws AmaraException {
+    private static Task getToDo(CommandEnum commandEnum, String commandParams) throws AmaraException {
         if (commandParams.isBlank()) {
             throw AmaraException.invalidParameters(commandEnum);
         }
         return new ToDo(commandParams);
     }
 
-    private static Task getDeadlines(Command commandEnum, String commandParams) throws AmaraException {
+    private static Task getDeadlines(CommandEnum commandEnum, String commandParams) throws AmaraException {
         String[] params = commandParams.split("/by");
         if (params.length != 2 || params[0].isBlank() || params[1].isBlank()) {
             throw AmaraException.invalidParameters(commandEnum);
@@ -35,7 +35,7 @@ public class TaskFactory {
         }
     }
 
-    private static Task getEvent(Command commandEnum, String commandParams) throws AmaraException {
+    private static Task getEvent(CommandEnum commandEnum, String commandParams) throws AmaraException {
         String[] params = commandParams.split("/from");
         if (params.length != 2 || params[0].isBlank() || params[1].isBlank()) {
             throw AmaraException.invalidParameters(commandEnum);

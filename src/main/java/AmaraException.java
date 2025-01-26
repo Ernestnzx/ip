@@ -1,5 +1,4 @@
 public class AmaraException extends Exception {
-    private static final String ITS_THE_END = "OWARI DAAAAA!!!!!!";
     private static final String ERROR_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means. :(";
     private static final String NUMBER_FORMAT = "OOPS!!! The word that you entered is not a number or empty. :(";
     private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the moment, try again later. :(";
@@ -18,7 +17,7 @@ public class AmaraException extends Exception {
         return new AmaraException(ERROR_MESSAGE);
     }
 
-    public static AmaraException invalidParameters(Command command) throws AmaraException {
+    public static AmaraException invalidParameters(CommandEnum command) throws AmaraException {
         switch (command) {
             case TODO:
                 return new AmaraException(String.format(FORMAT_STRING, "todo",
@@ -30,7 +29,7 @@ public class AmaraException extends Exception {
                 return new AmaraException(String.format(FORMAT_STRING, "event",
                         "event", "/from <start time>", "/to <end time>"));
             default:
-                return new AmaraException(ITS_THE_END); // Should never reach this point
+                return new AmaraException("OWARI DAAA!!!"); // Should never reach this point
         }
     }
 

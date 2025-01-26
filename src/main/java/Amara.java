@@ -1,33 +1,31 @@
-import java.io.BufferedReader;
-import java.io.FileWriter;
-import java.io.FileReader;
-import java.lang.StringBuilder;
-import java.time.LocalDateTime;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Amara {
     private ArrayList<Task> tasks;
+    private Memory memory;
     private Scanner scanner;
+    private Ui ui;
 
     private static final String BOARDER = "=".repeat(70);
-    private static final String FILE_PATH = "./tasklist.txt";
 
     Amara() {
-        this.tasks = new ArrayList<Task>();
+        this.memory = new Memory();
         this.scanner = new Scanner(System.in);
+        this.ui = new Ui();
+        try {
+            this.tasks = this.memory.readList();
+        } catch (IOException e) {
+            this.tasks = new ArrayList<Task>();
+        } catch (AmaraException e) {
+            System.out.println(e.getMessage());
+            this.tasks = new ArrayList<Task>();
+        }
     }
 
     private String wrapText(String text) {
         return String.format("%s\n%s\n%s", Amara.BOARDER, text, Amara.BOARDER);
-    }
-
-    private String greet() {
-        return "Hello I'm Amara\nWhat can I do for you?";
-    }
-
-    private String exit() {
-        return "Bye. Hope to see you again soon! <3";
     }
 
     @SuppressWarnings("unused")
@@ -76,60 +74,21 @@ public class Amara {
         return taskList;
     }
 
-    private void saveList() {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (Task task : this.tasks) {
-            stringBuilder.append(task.getSavedFormat() + "\n");
-        }
-        try (FileWriter writer = new FileWriter(FILE_PATH)) {
-            writer.write(stringBuilder.toString());
-        } catch (Exception e) {
-            System.out.println(AmaraException.fileWriteException());
-        }
-    }
-
-    private void readList() {
-        String line = "";
-        try (BufferedReader br = new BufferedReader(new FileReader(FILE_PATH))) {
-            while ((line = br.readLine().strip()) != null) {
-                String[] tokens = line.split(",");
-                boolean status = tokens[1].equals("1") ? true : false;
-                switch (tokens[0]) {
-                    case "T":
-                        this.tasks.add(new ToDo(status, tokens[2]));
-                        break;
-                    case "D":
-                        this.tasks.add(new Deadline(status, tokens[2], LocalDateTime.parse(tokens[3])));
-                        break;
-                    case "E":
-                        this.tasks.add(new Event(status, tokens[2],
-                                LocalDateTime.parse(tokens[3]), LocalDateTime.parse(tokens[4])));
-                        break;
-                    default:
-                        throw AmaraException.invalidCommand();
-                }
-            }
-        } catch (Exception e) {
-        }
-    }
-
     public void start() {
         boolean isExit = false;
-        this.readList();
-        System.out.println(this.wrapText(this.greet()));
+        this.ui.greet();
         while (!isExit) {
             String reply = "";
             String command = this.scanner.nextLine();
-            // System.out.println(command);
             String commandString = Amara.getFirstWord(command);
             String commandParams = Amara.removeFirstWord(command);
             try {
-                Command commandEnum = Command.fromString(commandString);
+                CommandEnum commandEnum = CommandEnum.fromString(commandString);
                 switch (commandEnum) {
                     case BYE:
-                        reply = this.exit();
+                        this.ui.exit();
                         isExit = true;
-                        break;
+                        return;
                     case LIST:
                         reply = this.getList();
                         break;
@@ -159,7 +118,11 @@ public class Amara {
             }
             System.out.println(this.wrapText(reply));
         }
-        this.saveList();
+        try {
+            this.memory.saveList(this.tasks);
+        } catch (AmaraException e) {
+            System.out.println("Unable to save task list :(");
+        }
     }
 
     private static String getFirstWord(String userInput) {
