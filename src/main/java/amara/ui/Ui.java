@@ -57,6 +57,23 @@ public class Ui {
         System.out.println(taskList);
     }
 
+    public void findTask(ArrayList<Task> tasks) {
+        // Using StringBuilder if speed is needed.
+        String taskList = "Here are the matching tasks in your list:\n";
+        int listSize = tasks.size();
+        if (listSize == 0) {
+            taskList += "  <There are no tasks that matched your query!>";
+        }
+        for (int i = 0; i < listSize; i++) {
+            taskList += i + 1 + ". " + tasks.get(i);
+            if (i < listSize - 1) {
+                taskList += "\n";
+            }
+        }
+        System.out.println(taskList);
+    }
+
+
     public void printExceptionMessage(Exception e) {
         String message = e.getMessage();
         System.out.println(message);

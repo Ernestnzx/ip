@@ -9,7 +9,8 @@ public enum CommandEnum {
     TODO,
     DEADLINE,
     EVENT,
-    DELETE;
+    DELETE,
+    FIND;
 
     public static CommandEnum fromString(String commandString) throws AmaraException {
         try {

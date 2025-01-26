@@ -31,6 +31,8 @@ public class Parser {
                 return new AddDeadlineCommand(Parser.getDeadline(commandParams));
             case EVENT:
                 return new AddEventCommand(Parser.getEvent(commandParams));
+            case FIND:
+                return new FindCommand(Parser.getStringQuery(commandParams));
             default:
                 throw AmaraException.invalidCommand();
         }
@@ -47,9 +49,16 @@ public class Parser {
     private static int getIndex(String commandParams) throws AmaraException {
         try {
             return Integer.parseInt(commandParams);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw AmaraException.numberFormatting();
         }
+    }
+    
+    private static String getStringQuery(String commandParams) throws AmaraException {
+        if (commandParams.isBlank()) {
+            throw new AmaraException("OOPS!!! String query cannot be empty :(");
+        }
+        return commandParams;
     }
 
     private static ToDo getToDo(String commandParams) throws AmaraException {
