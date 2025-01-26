@@ -1,4 +1,5 @@
 package amara.storage;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,7 +27,7 @@ public class Storage {
         }
         try (FileWriter writer = new FileWriter(this.filePath)) {
             writer.write(stringBuilder.toString());
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw AmaraException.fileWriteException();
         }
     }
@@ -36,23 +37,27 @@ public class Storage {
         String line = "";
         ArrayList<Task> tasks = new ArrayList<Task>();
         while ((line = br.readLine()) != null) {
-            String[] tokens = line.strip().split(",");
-            boolean status = tokens[1].equals("1") ? true : false;
-            switch (tokens[0]) {
-                case "T":
-                    tasks.add(new ToDo(status, tokens[2]));
-                    break;
-                case "D":
-                    tasks.add(new Deadline(status, tokens[2],
-                            LocalDateTime.parse(tokens[3])));
-                    break;
-                case "E":
-                    tasks.add(new Event(status, tokens[2],
-                            LocalDateTime.parse(tokens[3]),
-                            LocalDateTime.parse(tokens[4])));
-                    break;
-                default:
-                    throw new AmaraException("Format used for the file is wrong :(\n");
+            try {
+                String[] tokens = line.strip().split(",");
+                boolean status = tokens[1].equals("1") ? true : false;
+                switch (tokens[0]) {
+                    case "T":
+                        tasks.add(new ToDo(status, tokens[2]));
+                        break;
+                    case "D":
+                        tasks.add(new Deadline(status, tokens[2],
+                                LocalDateTime.parse(tokens[3])));
+                        break;
+                    case "E":
+                        tasks.add(new Event(status, tokens[2],
+                                LocalDateTime.parse(tokens[3]),
+                                LocalDateTime.parse(tokens[4])));
+                        break;
+                    default:
+                        throw new AmaraException("Format used for the file is wrong :(\n");
+                }
+            } catch (Exception e) {
+                throw new AmaraException("Format used for the file is wrong :(\n");
             }
         }
         br.close();
