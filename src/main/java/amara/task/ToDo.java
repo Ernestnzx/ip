@@ -1,4 +1,5 @@
 package amara.task;
+
 public class ToDo extends Task {
     private static final String stringFormat = "%s,%d,%s";
 

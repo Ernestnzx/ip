@@ -13,12 +13,14 @@ public class EventTest {
             LocalDateTime.parse("2025-02-02 1500", this.formatter),
             LocalDateTime.parse("2025-02-02 1600", this.formatter)
     );
+
     @Test
     public void addToDo() {
         assertEquals("[E][ ] CM4288 Final Year Project Meeting "
                 + "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
     }
+
     @Test
     public void markToDo() {
         this.event.markTask();
@@ -26,6 +28,7 @@ public class EventTest {
                 + "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
     }
+
     @Test
     public void unmarkToDo() {
         this.event.unmarkTask();
@@ -33,6 +36,7 @@ public class EventTest {
                 "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
     }
+
     @Test
     public void getSavedFormat() {
         this.event.getSavedFormat();

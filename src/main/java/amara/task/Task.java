@@ -1,4 +1,5 @@
 package amara.task;
+
 public abstract class Task {
     protected String taskDescription;
     protected boolean status;

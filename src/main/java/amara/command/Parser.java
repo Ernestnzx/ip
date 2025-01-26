@@ -47,7 +47,7 @@ public class Parser {
     private static int getIndex(String commandParams) throws AmaraException {
         try {
             return Integer.parseInt(commandParams);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             throw AmaraException.numberFormatting();
         }
     }
