@@ -17,20 +17,19 @@ public class AmaraException extends Exception {
         return new AmaraException(ERROR_MESSAGE);
     }
 
-    public static AmaraException invalidParameters(CommandEnum command) throws AmaraException {
-        switch (command) {
-            case TODO:
-                return new AmaraException(String.format(FORMAT_STRING, "todo",
-                        "todo", "", ""));
-            case DEADLINE:
-                return new AmaraException(String.format(FORMAT_STRING, "deadline",
-                        "deadline", "/by <time>", ""));
-            case EVENT:
-                return new AmaraException(String.format(FORMAT_STRING, "event",
-                        "event", "/from <start time>", "/to <end time>"));
-            default:
-                return new AmaraException("OWARI DAAA!!!"); // Should never reach this point
-        }
+    public static AmaraException invalidToDoParameter() {
+        return new AmaraException(String.format(FORMAT_STRING, "todo",
+                "todo", "", ""));
+    }
+
+    public static AmaraException invalidDeadlineParameter() {
+        return new AmaraException(String.format(FORMAT_STRING, "deadline",
+                "deadline", "/by <time>", ""));
+    }
+
+    public static AmaraException invalidEventParameter() {
+        return new AmaraException(String.format(FORMAT_STRING, "event",
+                "event", "/from <start time>", "/to <end time>"));
     }
 
     public static AmaraException indexOutOfBounds() {

@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Memory {
+public class Storage {
     private final String filePath;
 
-    Memory(String filePath) {
+    Storage(String filePath) {
         this.filePath = filePath;
     }
 
