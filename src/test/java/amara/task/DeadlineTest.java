@@ -12,23 +12,27 @@ public class DeadlineTest {
             "Do CM3221 disconnection approach homework",
             LocalDateTime.parse("2025-01-31 1600", this.formatter)
     );
+
     @Test
     public void addToDo() {
         assertEquals("[D][ ] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
     }
+
     @Test
     public void markToDo() {
         this.deadline.markTask();
         assertEquals("[D][X] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
     }
+
     @Test
     public void unmarkToDo() {
         this.deadline.unmarkTask();
         assertEquals("[D][ ] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
     }
+
     @Test
     public void getSavedFormat() {
         this.deadline.getSavedFormat();

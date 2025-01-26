@@ -1,4 +1,5 @@
 package amara.command;
+
 import java.util.ArrayList;
 
 import amara.exceptions.AmaraException;

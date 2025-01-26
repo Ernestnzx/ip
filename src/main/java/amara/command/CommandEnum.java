@@ -1,4 +1,5 @@
 package amara.command;
+
 import amara.exceptions.AmaraException;
 
 /**
