@@ -1,8 +1,9 @@
+package amara.task;
 public abstract class Task {
     protected String taskDescription;
     protected boolean status;
 
-    Task(String taskDescription, boolean status) {
+    public Task(String taskDescription, boolean status) {
         this.taskDescription = taskDescription;
         this.status = status;
     }

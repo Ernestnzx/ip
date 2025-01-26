@@ -1,9 +1,15 @@
+package amara.command;
 import java.util.ArrayList;
+
+import amara.exceptions.AmaraException;
+import amara.storage.Storage;
+import amara.task.Task;
+import amara.ui.Ui;
 
 public class UnmarkCommand extends Command {
     private final int index;
 
-    UnmarkCommand(int index) {
+    public UnmarkCommand(int index) {
         this.index = index - 1;
     }
 

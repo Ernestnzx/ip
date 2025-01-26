@@ -1,6 +1,13 @@
 import java.io.IOException;
 import java.util.ArrayList;
 
+import amara.command.Command;
+import amara.command.Parser;
+import amara.exceptions.AmaraException;
+import amara.storage.Storage;
+import amara.task.Task;
+import amara.ui.Ui;
+
 public class Amara {
     private ArrayList<Task> tasks;
     private Storage storage;

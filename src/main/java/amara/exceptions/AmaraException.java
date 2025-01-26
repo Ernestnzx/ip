@@ -1,3 +1,4 @@
+package amara.exceptions;
 public class AmaraException extends Exception {
     private static final String ERROR_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means. :(";
     private static final String NUMBER_FORMAT = "OOPS!!! The word that you entered is not a number or empty. :(";
@@ -9,7 +10,7 @@ public class AmaraException extends Exception {
     private static final String DATE_TIME_FORMAT = "OOPS!!! I don't understand the time/date format " 
             + "that you have given me :(\n  (Format: YYYY-MM-DD HHMM)";
 
-    AmaraException(String message) {
+    public AmaraException(String message) {
         super(message);
     }
 

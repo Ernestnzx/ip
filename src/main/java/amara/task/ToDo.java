@@ -1,11 +1,12 @@
+package amara.task;
 public class ToDo extends Task {
     private static final String stringFormat = "%s,%d,%s";
 
-    ToDo(String taskDescription) {
+    public ToDo(String taskDescription) {
         super(taskDescription, false);
     }
 
-    ToDo(boolean status, String taskDescription) {
+    public ToDo(boolean status, String taskDescription) {
         super(taskDescription, status);
     }
 

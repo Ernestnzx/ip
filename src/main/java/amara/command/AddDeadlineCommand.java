@@ -1,9 +1,15 @@
+package amara.command;
 import java.util.ArrayList;
+
+import amara.storage.Storage;
+import amara.task.Deadline;
+import amara.task.Task;
+import amara.ui.Ui;
 
 public class AddDeadlineCommand extends Command {
     private Deadline deadline;
 
-    AddDeadlineCommand (Deadline deadline) {
+    public AddDeadlineCommand (Deadline deadline) {
         this.deadline = deadline;
     }
 
