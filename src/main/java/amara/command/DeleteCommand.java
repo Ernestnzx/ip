@@ -1,9 +1,15 @@
+package amara.command;
 import java.util.ArrayList;
 
-public class MarkCommand extends Command {
+import amara.exceptions.AmaraException;
+import amara.storage.Storage;
+import amara.task.Task;
+import amara.ui.Ui;
+
+public class DeleteCommand extends Command {
     private final int index;
 
-    MarkCommand(int index) {
+    public DeleteCommand(int index) {
         this.index = index - 1;
     }
 
@@ -11,8 +17,8 @@ public class MarkCommand extends Command {
     public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
             Task task = tasks.get(this.index);
-            task.markTask();
-            ui.markTask(task);
+            tasks.remove(this.index);
+            ui.deleteTask(task, tasks.size());
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();
         }

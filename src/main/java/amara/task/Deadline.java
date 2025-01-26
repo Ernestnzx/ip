@@ -1,3 +1,4 @@
+package amara.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -6,12 +7,12 @@ public class Deadline extends Task {
     private static final String stringFormat = "%s,%d,%s,%s";
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
 
-    Deadline(String taskDescription, LocalDateTime dueDate) {
+    public Deadline(String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, false);
         this.dueDate = dueDate;
     }
 
-    Deadline(boolean status,String taskDescription, LocalDateTime dueDate) {
+    public Deadline(boolean status,String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, status);
         this.dueDate = dueDate;
     }

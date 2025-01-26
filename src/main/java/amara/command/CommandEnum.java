@@ -1,4 +1,7 @@
-enum CommandEnum {
+package amara.command;
+import amara.exceptions.AmaraException;
+
+public enum CommandEnum {
     BYE,
     LIST,
     MARK,

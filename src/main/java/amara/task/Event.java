@@ -1,3 +1,4 @@
+package amara.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -7,13 +8,13 @@ public class Event extends Task {
     private static final String stringFormat = "%s,%d,%s,%s,%s";
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
     
-    Event(String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
+    public Event(String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, false);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    Event(boolean status, String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
+    public Event(boolean status, String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, status);
         this.startDate = startDate;
         this.endDate = endDate;

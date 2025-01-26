@@ -1,6 +1,13 @@
+package amara.command;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;   
+import java.time.format.DateTimeParseException;
+
+import amara.exceptions.AmaraException;
+import amara.task.Deadline;
+import amara.task.Event;
+import amara.task.ToDo;   
 
 public class Parser {
     public static Command parseCommand(String fullCommand) throws AmaraException {

@@ -1,4 +1,9 @@
+package amara.command;
 import java.util.ArrayList;
+
+import amara.storage.Storage;
+import amara.task.Task;
+import amara.ui.Ui;
 
 public class ListCommand extends Command {
     @Override

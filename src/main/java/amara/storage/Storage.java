@@ -1,3 +1,4 @@
+package amara.storage;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -5,10 +6,16 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import amara.exceptions.AmaraException;
+import amara.task.Deadline;
+import amara.task.Event;
+import amara.task.Task;
+import amara.task.ToDo;
+
 public class Storage {
     private final String filePath;
 
-    Storage(String filePath) {
+    public Storage(String filePath) {
         this.filePath = filePath;
     }
 

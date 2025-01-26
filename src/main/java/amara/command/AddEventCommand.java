@@ -1,9 +1,15 @@
+package amara.command;
 import java.util.ArrayList;
+
+import amara.storage.Storage;
+import amara.task.Event;
+import amara.task.Task;
+import amara.ui.Ui;
 
 public class AddEventCommand extends Command {
     private Event event;
 
-    AddEventCommand(Event event) {
+    public AddEventCommand(Event event) {
         this.event = event;
     }
 

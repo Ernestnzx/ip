@@ -1,11 +1,14 @@
+package amara.ui;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import amara.task.Task;
 
 public class Ui {
     private String commandText;
     private Scanner scanner;
 
-    Ui(String filePath) {
+    public Ui(String filePath) {
         this.commandText = "";
         this.scanner = new Scanner(System.in);
     }
