@@ -5,11 +5,9 @@ import java.util.Scanner;
 import amara.task.Task;
 
 public class Ui {
-    private String commandText;
     private Scanner scanner;
 
     public Ui(String filePath) {
-        this.commandText = "";
         this.scanner = new Scanner(System.in);
     }
 
@@ -62,14 +60,6 @@ public class Ui {
     public void printExceptionMessage(Exception e) {
         String message = e.getMessage();
         System.out.println(message);
-    }
-
-    public void updateCommandText(String commandText) {
-        this.commandText = commandText;
-    }
-
-    public void printCommandText() {
-        System.out.println(this.commandText);
     }
 
     public String readLine() {
