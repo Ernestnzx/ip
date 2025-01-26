@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Memory {
-    private String filePath;
+    private final String filePath;
 
     Memory(String filePath) {
         this.filePath = filePath;

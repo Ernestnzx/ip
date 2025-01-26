@@ -34,7 +34,7 @@ then
 else
     echo "Test result (Functionality): FAILED"
 fi
-rm ./tasklist.txt
+rm ./taskfile.txt
 
 java -classpath ../bin Main < input_error.txt > ACTUAL.TXT
 # dos2unix ACTUAL.TXT EXPECTED-UNIX.TXT
@@ -47,5 +47,5 @@ then
 else
     echo "Test result (Error Handling): FAILED"
 fi
-rm ./tasklist.txt
+rm ./taskfile.txt
 

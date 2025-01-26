@@ -60,7 +60,7 @@ public class Amara {
                     case BYE:
                         this.ui.exit();
                         isExit = true;
-                        return;
+                        break;
                     case LIST:
                         this.getList();
                         break;
