@@ -1,4 +1,12 @@
 package amara.task;
+
+/**
+ * Represents a to-do task, a simple task without any date or time constraints.
+ * <p>
+ * A {@code ToDo} task stores a description and a completion status. It can be 
+ * serialized into a saveable format and displayed in a user-friendly string format.
+ * </p>
+ */
 public class ToDo extends Task {
     private static final String stringFormat = "%s,%d,%s";
 

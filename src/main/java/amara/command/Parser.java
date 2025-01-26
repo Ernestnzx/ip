@@ -7,9 +7,21 @@ import java.time.format.DateTimeParseException;
 import amara.exceptions.AmaraException;
 import amara.task.Deadline;
 import amara.task.Event;
-import amara.task.ToDo;   
+import amara.task.ToDo;
 
+/**
+ * Parses the given input command string and returns the corresponding 
+ * {@link Command} object to be executed.
+ */
 public class Parser {
+    /**
+     * The method extracts the first word of the input string to determine the command type 
+     * and parses the remaining string for command-specific parameters. The recognized 
+     * commands are defined in {@link CommandEnum}.
+     * @param fullCommand The full input string representing the user's command.
+     * @return A {@link Command} object that corresponds to the parsed command.
+     * @throws AmaraException If the command is invalid or if an error occurs while parsing.
+     */
     public static Command parseCommand(String fullCommand) throws AmaraException {
         String commandString = Parser.getFirstWord(fullCommand);
         String commandParams = Parser.removeFirstWord(fullCommand);

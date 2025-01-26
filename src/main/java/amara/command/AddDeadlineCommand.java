@@ -6,6 +6,13 @@ import amara.task.Deadline;
 import amara.task.Task;
 import amara.ui.Ui;
 
+/**
+ * A {@link Command} implementation that adds a {@link Deadline} task 
+ * to a given {@code ArrayList<Task>}.
+ * <p>
+ * The given {@link Deadline} task is  added to the provided {@code ArrayList<Task>}.
+ * </p>
+ */
 public class AddDeadlineCommand extends Command {
     private Deadline deadline;
 
@@ -13,6 +20,12 @@ public class AddDeadlineCommand extends Command {
         this.deadline = deadline;
     }
 
+    /**
+     * Executes the {@code Command}.
+     * @param tasks List of tasks.
+     * @param ui UI handler.
+     * @param storage To store the given List of tasks.
+     */
     @Override
     public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
         tasks.add(this.deadline);

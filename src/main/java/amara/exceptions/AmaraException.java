@@ -1,4 +1,13 @@
 package amara.exceptions;
+
+/**
+ * A custom exception class for handling errors specific to the Amara application.
+ * <p>
+ * This exception provides static factory methods to create predefined error messages 
+ * for common error scenarios, such as invalid commands, incorrect parameters, 
+ * or file write issues.
+ * </p>
+ */
 public class AmaraException extends Exception {
     private static final String ERROR_MESSAGE = "OOPS!!! I'm sorry, but I don't know what that means. :(";
     private static final String NUMBER_FORMAT = "OOPS!!! The word that you entered is not a number or empty. :(";

@@ -2,6 +2,14 @@ package amara.task;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents a deadline task, a task with a single dateline to complete.
+ * <p>
+ * A {@code Deadline} task stores a description, a ompletion status and a due date. 
+ * It can be serialized into a saveable format and displayed in a user-friendly 
+ * string format.
+ * </p>
+ */
 public class Deadline extends Task {
     private LocalDateTime dueDate;
     private static final String stringFormat = "%s,%d,%s,%s";
