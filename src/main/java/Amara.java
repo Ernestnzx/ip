@@ -41,4 +41,8 @@ public class Amara {
             }
         }
     }
+
+    public static void main(String[] args) {
+        new Amara().start();
+    }
 }
