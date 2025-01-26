@@ -56,11 +56,11 @@ public class Storage {
                     default:
                         throw new AmaraException("Format used for the file is wrong :(\n");
                 }
+                br.close();
             } catch (Exception e) {
                 throw new AmaraException("Format used for the file is wrong :(\n");
             }
         }
-        br.close();
         return tasks;
     }
 }
