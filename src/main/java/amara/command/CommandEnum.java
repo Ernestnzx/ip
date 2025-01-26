@@ -13,7 +13,8 @@ public enum CommandEnum {
     TODO,
     DEADLINE,
     EVENT,
-    DELETE;
+    DELETE,
+    FIND;
 
     /**
      * Convert a given string into the corresponding {@code enum}.
