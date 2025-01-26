@@ -6,14 +6,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Memory {
-    private static final String FILE_PATH = "./tasklist.txt";
+    private String filePath;
+
+    Memory(String filePath) {
+        this.filePath = filePath;
+    }
 
     public void saveList(ArrayList<Task> tasks) throws AmaraException {
         StringBuilder stringBuilder = new StringBuilder();
         for (Task task : tasks) {
             stringBuilder.append(task.getSavedFormat() + "\n");
         }
-        try (FileWriter writer = new FileWriter(FILE_PATH)) {
+        try (FileWriter writer = new FileWriter(this.filePath)) {
             writer.write(stringBuilder.toString());
         } catch (Exception e) {
             throw AmaraException.fileWriteException();
@@ -21,7 +25,7 @@ public class Memory {
     }
 
     public ArrayList<Task> readList() throws IOException, AmaraException {
-        BufferedReader br = new BufferedReader(new FileReader(FILE_PATH));
+        BufferedReader br = new BufferedReader(new FileReader(this.filePath));
         String line = "";
         ArrayList<Task> tasks = new ArrayList<Task>();
         while ((line = br.readLine()) != null) {
