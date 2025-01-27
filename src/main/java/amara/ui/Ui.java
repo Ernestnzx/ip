@@ -5,6 +5,12 @@ import java.util.Scanner;
 
 import amara.task.Task;
 
+/**
+ * User interface class that handles all of the interactions
+ * between the user and {@link Amara} chatbot. All of the methods
+ * and interactions are implemented with their corresponding {@code enum}
+ * in {@link CommandEnum}
+ */
 public class Ui {
     private Scanner scanner;
 

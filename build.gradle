@@ -28,7 +28,7 @@ test {
 }
 
 application {
-    mainClassName = "Amara"
+    mainClass = "amara.Amara"
 }
 
 shadowJar {

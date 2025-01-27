@@ -14,27 +14,18 @@ public class DeadlineTest {
     );
 
     @Test
-    public void addToDo() {
+    public void testDeadlineFunctionality() {
         assertEquals("[D][ ] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
-    }
 
-    @Test
-    public void markToDo() {
         this.deadline.markTask();
         assertEquals("[D][X] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
-    }
 
-    @Test
-    public void unmarkToDo() {
         this.deadline.unmarkTask();
         assertEquals("[D][ ] Do CM3221 disconnection approach homework "
                 + "(by: Jan 31 2025, 4:00 PM)", deadline.toString());
-    }
 
-    @Test
-    public void getSavedFormat() {
         this.deadline.getSavedFormat();
         assertEquals("D,0,Do CM3221 disconnection approach homework,2025-01-31T16:00",
                 deadline.getSavedFormat());

@@ -91,8 +91,6 @@ public class Parser {
             return new Deadline(tokens[0].strip(), dateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
-        } catch (AmaraException e) {
-            throw e;
         }
     }
 
@@ -112,8 +110,6 @@ public class Parser {
             return new Event(tokens[0].strip(), fromDateTime, toDateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
-        } catch (AmaraException e) {
-            throw e;
         }
     }
 }

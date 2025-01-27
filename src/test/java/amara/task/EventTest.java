@@ -15,30 +15,21 @@ public class EventTest {
     );
 
     @Test
-    public void addToDo() {
+    public void testEventFunctionality() {
         assertEquals("[E][ ] CM4288 Final Year Project Meeting "
                 + "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
-    }
 
-    @Test
-    public void markToDo() {
         this.event.markTask();
         assertEquals("[E][X] CM4288 Final Year Project Meeting "
                 + "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
-    }
 
-    @Test
-    public void unmarkToDo() {
         this.event.unmarkTask();
         assertEquals("[E][ ] CM4288 Final Year Project Meeting " +
                 "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
-    }
 
-    @Test
-    public void getSavedFormat() {
         this.event.getSavedFormat();
         assertEquals("E,0,CM4288 Final Year Project Meeting,"
                 + "2025-02-02T15:00,2025-02-02T16:00",

@@ -1,3 +1,5 @@
+package amara;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -21,10 +23,10 @@ public class Amara {
      * Creates a new {@code Amara} bot with a instantiated 
      * {@code Task} list if a valid file format is given.
      */
-    Amara() {
-        this.ui = new Ui(Amara.FILE_PATH);
+    Amara(String filePath) {
+        this.ui = new Ui(filePath);
         try {
-            this.storage = new Storage(Amara.FILE_PATH);
+            this.storage = new Storage(filePath);
             this.tasks = this.storage.readList();
         } catch (AmaraException e) {
             System.out.println(e.getMessage());
@@ -56,6 +58,6 @@ public class Amara {
      * Entry point of the application.
      */
     public static void main(String[] args) {
-        new Amara().start();
+        new Amara(Amara.FILE_PATH).start();
     }
 }
