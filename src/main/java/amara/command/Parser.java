@@ -27,26 +27,26 @@ public class Parser {
         String commandParams = Parser.removeFirstWord(fullCommand);
         CommandEnum commandEnum = CommandEnum.fromString(commandString);
         switch (commandEnum) {
-            case BYE:
-                return new ByeCommand();
-            case LIST:
-                return new ListCommand();
-            case MARK:
-                return new MarkCommand(Parser.getIndex(commandParams));
-            case UNMARK:
-                return new UnmarkCommand(Parser.getIndex(commandParams));
-            case DELETE:
-                return new DeleteCommand(Parser.getIndex(commandParams));
-            case TODO:
-                return new AddToDoCommand(Parser.getToDo(commandParams));
-            case DEADLINE:
-                return new AddDeadlineCommand(Parser.getDeadline(commandParams));
-            case EVENT:
-                return new AddEventCommand(Parser.getEvent(commandParams));
-            case FIND:
-                return new FindCommand(Parser.getStringQuery(commandParams));
-            default:
-                throw AmaraException.invalidCommand();
+        case BYE:
+            return new ByeCommand();
+        case LIST:
+            return new ListCommand();
+        case MARK:
+            return new MarkCommand(Parser.getIndex(commandParams));
+        case UNMARK:
+            return new UnmarkCommand(Parser.getIndex(commandParams));
+        case DELETE:
+            return new DeleteCommand(Parser.getIndex(commandParams));
+        case TODO:
+            return new AddToDoCommand(Parser.getToDo(commandParams));
+        case DEADLINE:
+            return new AddDeadlineCommand(Parser.getDeadline(commandParams));
+        case EVENT:
+            return new AddEventCommand(Parser.getEvent(commandParams));
+        case FIND:
+            return new FindCommand(Parser.getStringQuery(commandParams));
+        default:
+            throw AmaraException.invalidCommand();
         }
     }
 

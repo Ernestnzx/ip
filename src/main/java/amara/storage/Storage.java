@@ -52,20 +52,20 @@ public class Storage {
                 String[] tokens = line.strip().split(",");
                 boolean status = tokens[1].equals("1") ? true : false;
                 switch (tokens[0]) {
-                    case "T":
-                        tasks.add(new ToDo(status, tokens[2]));
-                        break;
-                    case "D":
-                        tasks.add(new Deadline(status, tokens[2],
-                                LocalDateTime.parse(tokens[3])));
-                        break;
-                    case "E":
-                        tasks.add(new Event(status, tokens[2],
-                                LocalDateTime.parse(tokens[3]),
-                                LocalDateTime.parse(tokens[4])));
-                        break;
-                    default:
-                        throw new AmaraException("Format used for the file is wrong :(\n");
+                case "T":
+                    tasks.add(new ToDo(status, tokens[2]));
+                    break;
+                case "D":
+                    tasks.add(new Deadline(status, tokens[2],
+                            LocalDateTime.parse(tokens[3])));
+                    break;
+                case "E":
+                    tasks.add(new Event(status, tokens[2],
+                            LocalDateTime.parse(tokens[3]),
+                            LocalDateTime.parse(tokens[4])));
+                    break;
+                default:
+                    throw new AmaraException("Format used for the file is wrong :(\n");
                 }
             } catch (Exception e) {
                 br.close();
