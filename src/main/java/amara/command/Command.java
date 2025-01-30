@@ -20,5 +20,5 @@ public abstract class Command {
         return false;
     }
 
-    public abstract void execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException;
+    public abstract String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException;
 }

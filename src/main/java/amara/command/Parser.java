@@ -65,7 +65,7 @@ public class Parser {
             throw AmaraException.numberFormatting();
         }
     }
-    
+
     private static String getStringQuery(String commandParams) throws AmaraException {
         if (commandParams.isBlank()) {
             throw new AmaraException("OOPS!!! String query cannot be empty :(");

@@ -15,9 +15,10 @@ import amara.ui.Ui;
  * with the corresponding changes.
  * </p>
  */
-
 public class DeleteCommand extends Command {
     private final int index;
+    private static final String MESSAGE = "Noted. I've removed this task:\n"
+            + "  %s\nNow you have %d tasks in the list.";
 
     public DeleteCommand(int index) {
         this.index = index - 1;
@@ -30,11 +31,13 @@ public class DeleteCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
             Task task = tasks.get(this.index);
             tasks.remove(this.index);
-            ui.deleteTask(task, tasks.size());
+            String string = String.format(DeleteCommand.MESSAGE, task, tasks.size());
+            ui.display(string);
+            return string;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();
         }

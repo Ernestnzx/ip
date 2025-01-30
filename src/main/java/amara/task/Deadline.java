@@ -14,15 +14,14 @@ import java.time.format.DateTimeFormatter;
 public class Deadline extends Task {
     private LocalDateTime dueDate;
     private static final String stringFormat = "%s,%d,%s,%s";
-    private static final DateTimeFormatter dateFormatter = 
-            DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
 
     public Deadline(String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, false);
         this.dueDate = dueDate;
     }
 
-    public Deadline(boolean status,String taskDescription, LocalDateTime dueDate) {
+    public Deadline(boolean status, String taskDescription, LocalDateTime dueDate) {
         super(taskDescription, status);
         this.dueDate = dueDate;
     }
@@ -30,7 +29,7 @@ public class Deadline extends Task {
     @Override
     public String getSavedFormat() {
         return String.format(Deadline.stringFormat, "D", this.status ? 1 : 0,
-                this.taskDescription, this.dueDate); 
+                this.taskDescription, this.dueDate);
     }
 
     @Override

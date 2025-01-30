@@ -17,11 +17,12 @@ import amara.ui.Ui;
  */
 public class UnmarkCommand extends Command {
     private final int index;
+    private static final String MESSAGE = "OK, I've marked this task as not done yet:\n  %s";
 
     public UnmarkCommand(int index) {
         this.index = index - 1;
     }
-    
+
     /**
      * Executes the {@code Command}.
      * @param tasks List of tasks.
@@ -29,11 +30,13 @@ public class UnmarkCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
             Task task = tasks.get(this.index);
             task.unmarkTask();
-            ui.unmarkTask(task);
+            String string = String.format(UnmarkCommand.MESSAGE, task);
+            ui.display(string);
+            return string;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();
         }

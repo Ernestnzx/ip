@@ -16,6 +16,8 @@ import amara.ui.Ui;
  */
 public class AddDeadlineCommand extends Command {
     private Deadline deadline;
+    private static final String MESSAGE = "Got it. I've added this task:\n"
+            + "  %s\nNow you have %d tasks in the list.";
 
     public AddDeadlineCommand(Deadline deadline) {
         this.deadline = deadline;
@@ -28,8 +30,10 @@ public class AddDeadlineCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
         tasks.add(this.deadline);
-        ui.addToList(deadline, tasks.size());
+        String string = String.format(AddDeadlineCommand.MESSAGE, this.deadline, tasks.size());
+        ui.display(string);
+        return string;
     }
 }

@@ -20,7 +20,20 @@ public class ListCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
-        ui.getList(tasks);
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+        // Using StringBuilder if speed is needed.
+        String taskList = "Here are the tasks in your list:\n";
+        int listSize = tasks.size();
+        if (listSize == 0) {
+            taskList += "  <You have no tasks at the moment, you may rest for now...>";
+        }
+        for (int i = 0; i < listSize; i++) {
+            taskList += i + 1 + ". " + tasks.get(i);
+            if (i < listSize - 1) {
+                taskList += "\n";
+            }
+        }
+        ui.display(taskList);
+        return taskList;
     }
 }

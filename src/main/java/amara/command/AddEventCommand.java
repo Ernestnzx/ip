@@ -17,6 +17,8 @@ import amara.ui.Ui;
  */
 public class AddEventCommand extends Command {
     private Event event;
+    private static final String MESSAGE = "Got it. I've added this task:\n"
+            + "  %s\nNow you have %d tasks in the list.";
 
     public AddEventCommand(Event event) {
         this.event = event;
@@ -29,8 +31,10 @@ public class AddEventCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
         tasks.add(this.event);
-        ui.addToList(event, tasks.size());
+        String string = String.format(AddEventCommand.MESSAGE, this.event, tasks.size());
+        ui.display(string);
+        return string;
     }
 }

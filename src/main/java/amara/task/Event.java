@@ -14,9 +14,8 @@ public class Event extends Task {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
     private static final String stringFormat = "%s,%d,%s,%s,%s";
-    private static final DateTimeFormatter dateFormatter = 
-            DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
-    
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+
     public Event(String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, false);
         this.startDate = startDate;
@@ -38,7 +37,7 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return String.format("[E][%s] %s (from: %s to: %s)", super.status ? "X" : " ", 
+        return String.format("[E][%s] %s (from: %s to: %s)", super.status ? "X" : " ",
                 super.taskDescription,
                 this.startDate.format(dateFormatter),
                 this.endDate.format(dateFormatter));

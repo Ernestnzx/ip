@@ -16,6 +16,8 @@ import amara.ui.Ui;
  */
 
 public class ByeCommand extends Command {
+    private static final String MESSAGE = "Bye. Hope to see you again soon! <3";
+
     @Override
     public boolean isBye() {
         return true;
@@ -28,10 +30,11 @@ public class ByeCommand extends Command {
      * @param storage To store the given List of tasks.
      */
     @Override
-    public void execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
-            ui.exit();
+            ui.display(ByeCommand.MESSAGE);
             storage.saveList(tasks);
+            return ByeCommand.MESSAGE;
         } catch (AmaraException e) {
             throw new AmaraException("Unable to save task list :(");
         }
