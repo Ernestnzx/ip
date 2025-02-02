@@ -1,5 +1,3 @@
-package amara;
-
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,6 +13,7 @@ import amara.ui.Ui;
  */
 public class Amara {
     private static final String FILE_PATH = "./data/taskfile.txt";
+    private static final String GREETING_MESSAGE = "Hello I'm Amara\nWhat can I do for you?";
     private ArrayList<Task> tasks;
     private Storage storage;
     private Ui ui;
@@ -37,12 +36,16 @@ public class Amara {
         }
     }
 
+    Amara() {
+        this(Amara.FILE_PATH);
+    }
+
     /**
      * Runs the {@code Amara} chatbot.
      */
     public void start() {
         boolean isBye = false;
-        this.ui.greet();
+        this.ui.display(GREETING_MESSAGE);
         while (!isBye) {
             try {
                 String commandLine = this.ui.readLine();
@@ -60,5 +63,21 @@ public class Amara {
      */
     public static void main(String[] args) {
         new Amara(Amara.FILE_PATH).start();
+    }
+
+    /**
+     * Generates a response for the user's chat message.
+     */
+    public String getResponse(String input) {
+        try {
+            Command command = Parser.parseCommand(input);
+            return command.execute(tasks, ui, storage);
+        } catch (AmaraException e) {
+            return e.getMessage();
+        }
+    }
+
+    public String greet() {
+        return GREETING_MESSAGE;
     }
 }

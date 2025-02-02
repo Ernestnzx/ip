@@ -10,7 +10,7 @@ package amara.exceptions;
  */
 public class AmaraException extends Exception {
     private static final String ERROR_MESSAGE = "OOPS!!! I'm sorry, but I don't know "
-            + "what that means. :(";
+            + "what that means (Type <help> to see available commands). :(";
     private static final String NUMBER_FORMAT = "OOPS!!! The word that you entered is "
             + "not a number or empty. :(";
     private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the "

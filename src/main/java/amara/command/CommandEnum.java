@@ -14,7 +14,8 @@ public enum CommandEnum {
     DEADLINE,
     EVENT,
     DELETE,
-    FIND;
+    FIND,
+    HELP;
 
     /**
      * Convert a given string into the corresponding {@code enum}.
