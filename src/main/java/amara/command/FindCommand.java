@@ -30,10 +30,11 @@ public class FindCommand extends Command {
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
-        ArrayList<Task> queries = new ArrayList<Task>();
-        for (Task task : tasks) {
+        ArrayList<String> queries = new ArrayList<String>();
+        for (int i = 0; i < tasks.size(); i++) {
+            Task task = tasks.get(i);
             if (task.getTaskDescription().contains(this.query)) {
-                queries.add(task);
+                queries.add(i + 1 + ". " + task);
             }
         }
         String taskList = "Here are the matching tasks in your list:\n";
@@ -42,7 +43,7 @@ public class FindCommand extends Command {
             taskList += "  <There are no tasks that matched your query!>";
         }
         for (int i = 0; i < listSize; i++) {
-            taskList += i + 1 + ". " + queries.get(i);
+            taskList += queries.get(i);
             if (i < listSize - 1) {
                 taskList += "\n";
             }
