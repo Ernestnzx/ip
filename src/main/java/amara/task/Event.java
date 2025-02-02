@@ -6,22 +6,37 @@ import java.time.format.DateTimeFormatter;
 /**
  * Represents a event task, a task with a start and end date.
  * <p>
- * A {@code Event} task stores a description, a completion status and a start and end date. 
+ * A {@code Event} task stores a description, a completion status and a start and end date.
  * It can be serialized into a saveable format and displayed in a user-friendly string format.
  * </p>
  */
 public class Event extends Task {
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
     private static final String stringFormat = "%s,%d,%s,%s,%s";
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
+    /**
+     * Constructs an {@code Event} with the given description and time range.
+     *
+     * @param taskDescription The description of the event.
+     * @param startDate       The start date and time of the event.
+     * @param endDate         The end date and time of the event.
+     */
     public Event(String taskDescription, LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, false);
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
+    /**
+     * Constructs an {@code Event} with a specified completion status.
+     *
+     * @param status          The completion status of the event.
+     * @param taskDescription The description of the event.
+     * @param startDate       The start date and time of the event.
+     * @param endDate         The end date and time of the event.
+     */
     public Event(boolean status, String taskDescription,
             LocalDateTime startDate, LocalDateTime endDate) {
         super(taskDescription, status);

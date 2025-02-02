@@ -23,6 +23,10 @@ public class Ui {
         System.out.println(string);
     }
 
+    /**
+     * Prints the message in the given {@code Exception}
+     * @param e
+     */
     public void printExceptionMessage(Exception e) {
         String message = e.getMessage();
         System.out.println(message);

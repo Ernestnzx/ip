@@ -1,12 +1,13 @@
 package amara.task;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class EventTest {
+class EventTest {
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
     private Event event = new Event(
             "CM4288 Final Year Project Meeting",
@@ -26,8 +27,8 @@ public class EventTest {
                 event.toString());
 
         this.event.unmarkTask();
-        assertEquals("[E][ ] CM4288 Final Year Project Meeting " +
-                "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
+        assertEquals("[E][ ] CM4288 Final Year Project Meeting "
+                + "(from: Feb 2 2025, 3:00 PM to: Feb 2 2025, 4:00 PM)",
                 event.toString());
 
         this.event.getSavedFormat();

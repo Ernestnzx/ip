@@ -8,16 +8,16 @@ import amara.task.Task;
 import amara.ui.Ui;
 
 /**
- * A {@link Command} that unmarks a {@link Task} as incomplete 
+ * A {@link Command} that unmarks a {@link Task} as incomplete
  * at a specific index in the given {@code ArrayList<Task>}.
  * <p>
- * This command retrieves the task, marks it as incomplete, 
+ * This command retrieves the task, marks it as incomplete,
  * and updates the {@link Ui} accordingly.
  * </p>
  */
 public class UnmarkCommand extends Command {
-    private final int index;
     private static final String MESSAGE = "OK, I've marked this task as not done yet:\n  %s";
+    private final int index;
 
     public UnmarkCommand(int index) {
         this.index = index - 1;

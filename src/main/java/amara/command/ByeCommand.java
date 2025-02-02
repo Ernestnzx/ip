@@ -10,7 +10,7 @@ import amara.ui.Ui;
 /**
  * A {@link Command} that signals the termination of the program.
  * <p>
- * Executes the necessary operations to exit, including 
+ * Executes the necessary operations to exit, including
  * saving the task list and triggering the exit sequence.
  * </p>
  */

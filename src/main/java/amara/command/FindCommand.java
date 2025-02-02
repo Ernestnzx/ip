@@ -11,7 +11,7 @@ import amara.ui.Ui;
  * A {@link Command} that finds all {@link Task} with a query string
  * in the given {@code ArrayList<Task>}.
  * <p>
- * This command removes the task from the list and updates the UI 
+ * This command removes the task from the list and updates the UI
  * with the corresponding changes.
  * </p>
  */
