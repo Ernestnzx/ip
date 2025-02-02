@@ -14,13 +14,13 @@ import amara.ui.Ui;
  * The main class chatbot program {@code Amara}.
  */
 public class Amara {
+    private static final String FILE_PATH = "./data/taskfile.txt";
     private ArrayList<Task> tasks;
     private Storage storage;
     private Ui ui;
-    private static final String FILE_PATH = "./data/taskfile.txt";
 
     /**
-     * Creates a new {@code Amara} bot with a instantiated 
+     * Creates a new {@code Amara} bot with a instantiated
      * {@code Task} list if a valid file format is given.
      */
     Amara(String filePath) {
@@ -29,6 +29,7 @@ public class Amara {
             this.storage = new Storage(filePath);
             this.tasks = this.storage.readList();
         } catch (AmaraException e) {
+            // The error is file formatting issues
             System.out.println(e.getMessage());
             this.tasks = new ArrayList<Task>();
         } catch (IOException e) {

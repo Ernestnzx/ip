@@ -8,16 +8,16 @@ import amara.task.Task;
 import amara.ui.Ui;
 
 /**
- * A {@link Command} that marks a {@link Task} as completed 
+ * A {@link Command} that marks a {@link Task} as completed
  * at a specific index in the given {@code ArrayList<Task>}.
  * <p>
- * This command retrieves the task, marks it as completed, 
+ * This command retrieves the task, marks it as completed,
  * and updates the {@link Ui} accordingly.
  * </p>
  */
 public class MarkCommand extends Command {
-    private final int index;
     private static final String MESSAGE = "Nice! I've marked this task as done:\n  %s";
+    private final int index;
 
     public MarkCommand(int index) {
         this.index = index - 1;

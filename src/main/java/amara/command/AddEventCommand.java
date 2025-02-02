@@ -9,16 +9,16 @@ import amara.task.Task;
 import amara.ui.Ui;
 
 /**
- * A {@link Command} implementation that adds a {@link Deadline} task 
+ * A {@link Command} implementation that adds a {@link Deadline} task
  * to a given {@code ArrayList<Task>}.
  * <p>
  * The given {@link Event} task is added to the provided {@code ArrayList<Task>}.
  * </p>
  */
 public class AddEventCommand extends Command {
-    private Event event;
     private static final String MESSAGE = "Got it. I've added this task:\n"
             + "  %s\nNow you have %d tasks in the list.";
+    private Event event;
 
     public AddEventCommand(Event event) {
         this.event = event;

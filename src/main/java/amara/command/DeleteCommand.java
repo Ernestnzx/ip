@@ -8,17 +8,17 @@ import amara.task.Task;
 import amara.ui.Ui;
 
 /**
- * A {@link Command} that deletes a {@link Task} at a specified index 
+ * A {@link Command} that deletes a {@link Task} at a specified index
  * in the given {@code ArrayList<Task>}.
  * <p>
- * This command removes the task from the list and updates the UI 
+ * This command removes the task from the list and updates the UI
  * with the corresponding changes.
  * </p>
  */
 public class DeleteCommand extends Command {
-    private final int index;
     private static final String MESSAGE = "Noted. I've removed this task:\n"
             + "  %s\nNow you have %d tasks in the list.";
+    private final int index;
 
     public DeleteCommand(int index) {
         this.index = index - 1;

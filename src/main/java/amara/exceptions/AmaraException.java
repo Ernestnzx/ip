@@ -3,8 +3,8 @@ package amara.exceptions;
 /**
  * A custom exception class for handling errors specific to the Amara application.
  * <p>
- * This exception provides static factory methods to create predefined error messages 
- * for common error scenarios, such as invalid commands, incorrect parameters, 
+ * This exception provides static factory methods to create predefined error messages
+ * for common error scenarios, such as invalid commands, incorrect parameters,
  * or file write issues.
  * </p>
  */
@@ -15,7 +15,7 @@ public class AmaraException extends Exception {
             + "not a number or empty. :(";
     private static final String WRITE_FILE = "OOPS!!! I cannot write to a file at the "
             + "moment, try again later. :(";
-    private static final String FORMAT_STRING = "OOPS!!! The format for "
+    private static final String FORMAT = "OOPS!!! The format for "
             + "%s parameter(s) is/are empty!\n  Usage: %s <description> %s %s";
     private static final String OUT_OF_BOUNDS = "OOPS!!! The index you want to "
             + "mark/unmark/delete is out of bounds. :(";
@@ -31,18 +31,15 @@ public class AmaraException extends Exception {
     }
 
     public static AmaraException invalidToDoParameter() {
-        return new AmaraException(String.format(FORMAT_STRING, "todo",
-                "todo", "", ""));
+        return new AmaraException(String.format(FORMAT, "todo", "todo", "", ""));
     }
 
     public static AmaraException invalidDeadlineParameter() {
-        return new AmaraException(String.format(FORMAT_STRING, "deadline",
-                "deadline", "/by <time>", ""));
+        return new AmaraException(String.format(FORMAT, "deadline", "deadline", "/by <time>", ""));
     }
 
     public static AmaraException invalidEventParameter() {
-        return new AmaraException(String.format(FORMAT_STRING, "event",
-                "event", "/from <start time>", "/to <end time>"));
+        return new AmaraException(String.format(FORMAT, "event", "event", "/from <start time>", "/to <end time>"));
     }
 
     public static AmaraException indexOutOfBounds() {
