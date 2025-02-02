@@ -45,6 +45,8 @@ public class Parser {
             return new AddEventCommand(Parser.getEvent(commandParams));
         case FIND:
             return new FindCommand(Parser.getStringQuery(commandParams));
+        case HELP:
+            return new HelpCommand();
         default:
             throw AmaraException.invalidCommand();
         }
