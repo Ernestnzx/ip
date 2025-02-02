@@ -15,10 +15,6 @@ public class Ui {
         this.scanner = new Scanner(System.in);
     }
 
-    public void greet() {
-        System.out.println("Hello I'm Amara\nWhat can I do for you?");
-    }
-
     public void display(String string) {
         System.out.println(string);
     }
