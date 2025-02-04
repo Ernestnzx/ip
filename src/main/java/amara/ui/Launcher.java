@@ -1,3 +1,5 @@
+package amara.ui;
+
 import javafx.application.Application;
 
 /**

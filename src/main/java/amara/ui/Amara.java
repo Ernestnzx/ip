@@ -1,3 +1,5 @@
+package amara.ui;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -6,13 +8,12 @@ import amara.command.Parser;
 import amara.exceptions.AmaraException;
 import amara.storage.Storage;
 import amara.task.Task;
-import amara.ui.Ui;
 
 /**
  * The main class chatbot program {@code Amara}.
  */
 public class Amara {
-    private static final String FILE_PATH = "./data/taskfile.txt";
+    private static final String FILE_PATH = System.getProperty("user.dir") + "/data/taskfile.txt";
     private static final String GREETING_MESSAGE = "Hello I'm Amara\nWhat can I do for you?";
     private ArrayList<Task> tasks;
     private Storage storage;
