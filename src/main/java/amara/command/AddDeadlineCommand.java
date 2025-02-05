@@ -32,8 +32,8 @@ public class AddDeadlineCommand extends Command {
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
         tasks.add(this.deadline);
-        String string = String.format(AddDeadlineCommand.MESSAGE, this.deadline, tasks.size());
-        ui.display(string);
-        return string;
+        String message = String.format(AddDeadlineCommand.MESSAGE, this.deadline, tasks.size());
+        ui.display(message);
+        return message;
     }
 }

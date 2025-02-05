@@ -33,11 +33,10 @@ public class DeleteCommand extends Command {
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
-            Task task = tasks.get(this.index);
-            tasks.remove(this.index);
-            String string = String.format(DeleteCommand.MESSAGE, task, tasks.size());
-            ui.display(string);
-            return string;
+            Task task = tasks.remove(this.index);
+            String message = String.format(DeleteCommand.MESSAGE, task, tasks.size());
+            ui.display(message);
+            return message;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();
         }

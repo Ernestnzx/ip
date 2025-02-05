@@ -38,14 +38,15 @@ public class FindCommand extends Command {
             }
         }
         String taskList = "Here are the matching tasks in your list:\n";
-        int listSize = queries.size();
-        if (listSize == 0) {
+        if (queries.isEmpty()) {
             taskList += "  <There are no tasks that matched your query!>";
-        }
-        for (int i = 0; i < listSize; i++) {
-            taskList += queries.get(i);
-            if (i < listSize - 1) {
-                taskList += "\n";
+        } else {
+            int listSize = queries.size();
+            for (int i = 0; i < listSize; i++) {
+                taskList += queries.get(i);
+                if (i < listSize - 1) {
+                    taskList += "\n";
+                }
             }
         }
         ui.display(taskList);

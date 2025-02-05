@@ -34,9 +34,9 @@ public class MarkCommand extends Command {
         try {
             Task task = tasks.get(this.index);
             task.markTask();
-            String string = String.format(MarkCommand.MESSAGE, task);
-            ui.display(string);
-            return string;
+            String message = String.format(MarkCommand.MESSAGE, task);
+            ui.display(message);
+            return message;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();
         }
