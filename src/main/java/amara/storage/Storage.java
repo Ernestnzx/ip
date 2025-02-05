@@ -63,6 +63,7 @@ public class Storage {
         while ((line = br.readLine()) != null) {
             try {
                 String[] tokens = line.strip().split(",");
+                // by default if token is invalid it would be false;
                 boolean status = tokens[1].equals("1") ? true : false;
                 switch (tokens[0]) {
                 case "T":
