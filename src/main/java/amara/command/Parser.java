@@ -93,6 +93,7 @@ public class Parser {
             String dateTimeToken = tokens[1].strip();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
             LocalDateTime dateTime = LocalDateTime.parse(dateTimeToken, formatter);
+            assert description.isBlank() : "Deadline description is blank";
             return new Deadline(description, dateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
@@ -118,6 +119,7 @@ public class Parser {
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
             LocalDateTime fromDateTime = LocalDateTime.parse(fromDateTimeToken, formatter);
             LocalDateTime toDateTime = LocalDateTime.parse(toDateTimeToken, formatter);
+            assert description.isBlank() : "Event description is blank";
             return new Event(description, fromDateTime, toDateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
