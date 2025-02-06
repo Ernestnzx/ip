@@ -1,6 +1,7 @@
 package amara.command;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 import amara.storage.Storage;
 import amara.task.Task;
@@ -21,19 +22,14 @@ public class ListCommand extends Command {
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
-        // Using StringBuilder if speed is needed.
-        String taskList = "Here are the tasks in your list:\n";
-        int listSize = tasks.size();
-        if (listSize == 0) {
-            taskList += "  <You have no tasks at the moment, you may rest for now...>";
-        }
-        for (int i = 0; i < listSize; i++) {
-            taskList += i + 1 + ". " + tasks.get(i);
-            if (i < listSize - 1) {
-                taskList += "\n";
-            }
-        }
-        ui.display(taskList);
-        return taskList;
+        String header = "Here are the tasks in your list:\n";
+        String taskList = IntStream
+                .range(0, tasks.size())
+                .mapToObj(x -> String.format("%d.) %s", x + 1, tasks.get(x).toString()))
+                .reduce((x, y) -> x + '\n' + y)
+                .orElse("  <You have no tasks at the moment, you may rest for now...>");
+        String formattedTaskList = header + taskList;
+        ui.display(formattedTaskList);
+        return formattedTaskList;
     }
 }

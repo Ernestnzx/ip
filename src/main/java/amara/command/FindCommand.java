@@ -1,6 +1,7 @@
 package amara.command;
 
 import java.util.ArrayList;
+import java.util.stream.IntStream;
 
 import amara.exceptions.AmaraException;
 import amara.storage.Storage;
@@ -30,25 +31,15 @@ public class FindCommand extends Command {
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
-        ArrayList<String> queries = new ArrayList<String>();
-        for (int i = 0; i < tasks.size(); i++) {
-            Task task = tasks.get(i);
-            if (task.getTaskDescription().contains(this.query)) {
-                queries.add(i + 1 + ". " + task);
-            }
-        }
-        String taskList = "Here are the matching tasks in your list:\n";
-        int listSize = queries.size();
-        if (listSize == 0) {
-            taskList += "  <There are no tasks that matched your query!>";
-        }
-        for (int i = 0; i < listSize; i++) {
-            taskList += queries.get(i);
-            if (i < listSize - 1) {
-                taskList += "\n";
-            }
-        }
-        ui.display(taskList);
-        return taskList;
+        String header = "Here are the matching tasks in your list:\n";
+        String taskList = IntStream
+                .range(0, tasks.size())
+                .filter(x -> tasks.get(x).getTaskDescription().contains(this.query))
+                .mapToObj(x -> String.format("%d.) %s", x + 1, tasks.get(x).toString()))
+                .reduce((x, y) -> x + '\n' + y)
+                .orElse("  <There are no tasks that matched your query :(>");
+        String formattedTaskList = header + taskList;
+        ui.display(formattedTaskList);
+        return formattedTaskList;
     }
 }
