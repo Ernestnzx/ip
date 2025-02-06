@@ -37,7 +37,7 @@ public class FindCommand extends Command {
                 .filter(x -> tasks.get(x).getTaskDescription().contains(this.query))
                 .mapToObj(x -> String.format("%d.) %s", x + 1, tasks.get(x).toString()))
                 .reduce((x, y) -> x + '\n' + y)
-                .orElse("  <There are no tasks that matched your query :(>");
+                .orElse("  <There are no tasks that matched your query> :(");
         String formattedTaskList = header + taskList;
         ui.display(formattedTaskList);
         return formattedTaskList;
