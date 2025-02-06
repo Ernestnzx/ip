@@ -30,11 +30,12 @@ public class Amara {
             this.tasks = this.storage.readList();
         } catch (AmaraException e) {
             // The error is file formatting issues
-            System.out.println(e.getMessage());
+            this.ui.printExceptionMessage(e);
             this.tasks = new ArrayList<Task>();
         } catch (IOException e) {
             this.tasks = new ArrayList<Task>();
         }
+        assert this.tasks != null : "Task list is null.";
     }
 
     Amara() {
