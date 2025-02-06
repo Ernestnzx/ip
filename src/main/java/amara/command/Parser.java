@@ -83,35 +83,44 @@ public class Parser {
     }
 
     private static Deadline getDeadline(String commandParams) throws AmaraException {
+        // splits parameters into description and deadline tokens
         String[] tokens = commandParams.split("/by");
+        String description = tokens[0].strip();
         try {
-            if (tokens.length != 2 || tokens[0].isBlank()) {
+            if (tokens.length != 2 || description.isBlank()) {
                 throw AmaraException.invalidDeadlineParameter();
             }
+            String dateTimeToken = tokens[1].strip();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-            LocalDateTime dateTime = LocalDateTime.parse(tokens[1].strip(), formatter);
-            assert !tokens[0].strip().isBlank() : "Deadline description is blank";
-            return new Deadline(tokens[0].strip(), dateTime);
+            LocalDateTime dateTime = LocalDateTime.parse(dateTimeToken, formatter);
+            assert description.isBlank() : "Deadline description is blank";
+            return new Deadline(description, dateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
         }
     }
 
     private static Event getEvent(String commandParams) throws AmaraException {
+        // splits parameters into description and duration tokens
         String[] tokens = commandParams.split("/from");
+        String description = tokens[0].strip();
         try {
-            if (tokens.length != 2 || tokens[0].isBlank()) {
+            if (tokens.length != 2 || description.isBlank()) {
                 throw AmaraException.invalidEventParameter();
             }
+            // split duration tokens into fromDateTime and toDateTime strings
             String[] duration = tokens[1].split("/to");
             if (duration.length != 2) {
                 throw AmaraException.invalidEventParameter();
             }
+
+            String fromDateTimeToken = duration[0].strip();
+            String toDateTimeToken = duration[1].strip();
             DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HHmm");
-            LocalDateTime fromDateTime = LocalDateTime.parse(duration[0].strip(), formatter);
-            LocalDateTime toDateTime = LocalDateTime.parse(duration[1].strip(), formatter);
-            assert !tokens[0].strip().isBlank() : "Event description is blank";
-            return new Event(tokens[0].strip(), fromDateTime, toDateTime);
+            LocalDateTime fromDateTime = LocalDateTime.parse(fromDateTimeToken, formatter);
+            LocalDateTime toDateTime = LocalDateTime.parse(toDateTimeToken, formatter);
+            assert description.isBlank() : "Event description is blank";
+            return new Event(description, fromDateTime, toDateTime);
         } catch (DateTimeParseException e) {
             throw AmaraException.dateTimeFormatException();
         }

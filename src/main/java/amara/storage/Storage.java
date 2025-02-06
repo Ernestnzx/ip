@@ -63,27 +63,29 @@ public class Storage {
         while ((line = br.readLine()) != null) {
             try {
                 String[] tokens = line.strip().split(",");
-                // by default if token is invalid it would be false;
+                String taskType = tokens[0];
                 boolean status = tokens[1].equals("1") ? true : false;
-                switch (tokens[0]) {
+                String description = tokens[2];
+
+                switch (taskType) {
                 case "T":
-                    tasks.add(new ToDo(status, tokens[2]));
+                    tasks.add(new ToDo(status, description));
                     break;
                 case "D":
-                    tasks.add(new Deadline(status, tokens[2],
-                            LocalDateTime.parse(tokens[3])));
+                    LocalDateTime dueDate = LocalDateTime.parse(tokens[3]);
+                    tasks.add(new Deadline(status, description, dueDate));
                     break;
                 case "E":
-                    tasks.add(new Event(status, tokens[2],
-                            LocalDateTime.parse(tokens[3]),
-                            LocalDateTime.parse(tokens[4])));
+                    LocalDateTime fromDateTime = LocalDateTime.parse(tokens[3]);
+                    LocalDateTime toDateTime = LocalDateTime.parse(tokens[4]);
+                    tasks.add(new Event(status, description, fromDateTime, toDateTime));
                     break;
                 default:
-                    throw new AmaraException("Format used for the file is wrong :(\n");
+                    throw AmaraException.fileFormatException();
                 }
             } catch (Exception e) {
                 br.close();
-                throw new AmaraException("Format used for the file is wrong :(\n");
+                throw AmaraException.fileFormatException();
             }
         }
         br.close();

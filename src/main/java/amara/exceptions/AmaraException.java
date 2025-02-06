@@ -21,6 +21,7 @@ public class AmaraException extends Exception {
             + "mark/unmark/delete is out of bounds. :(";
     private static final String DATE_TIME_FORMAT = "OOPS!!! I don't understand the "
             + "time/date format that you have given me :(\n  (Format: YYYY-MM-DD HHMM)";
+    private static final String FILE_FORMAT = "OOPS!!! Format in the saved file is wrong :(\n";
 
     public AmaraException(String message) {
         super(message);
@@ -56,5 +57,9 @@ public class AmaraException extends Exception {
 
     public static AmaraException dateTimeFormatException() {
         return new AmaraException(DATE_TIME_FORMAT);
+    }
+
+    public static AmaraException fileFormatException() {
+        return new AmaraException(FILE_FORMAT);
     }
 }

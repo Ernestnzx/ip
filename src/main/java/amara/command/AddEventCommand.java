@@ -3,13 +3,12 @@ package amara.command;
 import java.util.ArrayList;
 
 import amara.storage.Storage;
-import amara.task.Deadline;
 import amara.task.Event;
 import amara.task.Task;
 import amara.ui.Ui;
 
 /**
- * A {@link Command} implementation that adds a {@link Deadline} task
+ * A {@link Command} implementation that adds a {@link Event} task
  * to a given {@code ArrayList<Task>}.
  * <p>
  * The given {@link Event} task is added to the provided {@code ArrayList<Task>}.
@@ -33,8 +32,8 @@ public class AddEventCommand extends Command {
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
         tasks.add(this.event);
-        String string = String.format(AddEventCommand.MESSAGE, this.event, tasks.size());
-        ui.display(string);
-        return string;
+        String message = String.format(AddEventCommand.MESSAGE, this.event, tasks.size());
+        ui.display(message);
+        return message;
     }
 }

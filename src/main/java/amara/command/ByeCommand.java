@@ -14,7 +14,6 @@ import amara.ui.Ui;
  * saving the task list and triggering the exit sequence.
  * </p>
  */
-
 public class ByeCommand extends Command {
     private static final String MESSAGE = "Bye. Hope to see you again soon! <3";
 
