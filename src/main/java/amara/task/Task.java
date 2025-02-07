@@ -4,24 +4,24 @@ package amara.task;
  * An abstract class representing a contract for various {@link Task} implementations
  * that {@link Amara} keeps track of in her {@code ArrayList<Task>}.
  * <p>
- * A {@code Task} object encapsulates a task's description and its completion status.
+ * A {@code Task} object encapsulates a task's description and its completion statys.
  * Concrete subclasses implement specific types of tasks and provide their own behavior
  * for storage formatting.
  * </p>
  */
 public abstract class Task {
     protected String taskDescription;
-    protected boolean status;
+    protected boolean isMarked;
 
     /**
-     * Constructs a {@code Task} with the given description and completion status.
+     * Constructs a {@code Task} with the given description and completion isMarked.
      *
      * @param taskDescription The description of the task.
-     * @param status          The completion status of the task.
+     * @param isMarked          The completion status of the task.
      */
-    public Task(String taskDescription, boolean status) {
+    public Task(String taskDescription, boolean isMarked) {
         this.taskDescription = taskDescription;
-        this.status = status;
+        this.isMarked = isMarked;
     }
 
     public String getTaskDescription() {
@@ -29,15 +29,15 @@ public abstract class Task {
     }
 
     public void markTask() {
-        this.status = true;
+        this.isMarked = true;
     }
 
     public void unmarkTask() {
-        this.status = false;
+        this.isMarked = false;
     }
 
-    public boolean getStatus() {
-        return this.status;
+    public boolean getisMarked() {
+        return this.isMarked;
     }
 
     public abstract String getSavedFormat();

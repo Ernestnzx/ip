@@ -15,10 +15,13 @@ import amara.ui.Ui;
  */
 public class ListCommand extends Command {
     /**
-     * Executes the {@code Command}.
+     * Collects all {@link Task} descriptions and 
+     * generate the string for the ui.
+     * 
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {

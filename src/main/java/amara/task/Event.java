@@ -46,13 +46,13 @@ public class Event extends Task {
 
     @Override
     public String getSavedFormat() {
-        return String.format(Event.stringFormat, "E", this.status ? 1 : 0,
+        return String.format(Event.stringFormat, "E", this.isMarked ? 1 : 0,
                 this.taskDescription, this.startDate, this.endDate);
     }
 
     @Override
     public String toString() {
-        return String.format("[E][%s] %s (from: %s to: %s)", super.status ? "X" : " ",
+        return String.format("[E][%s] %s (from: %s to: %s)", super.isMarked ? "X" : " ",
                 super.taskDescription,
                 this.startDate.format(dateFormatter),
                 this.endDate.format(dateFormatter));

@@ -40,13 +40,13 @@ public class Deadline extends Task {
 
     @Override
     public String getSavedFormat() {
-        return String.format(Deadline.stringFormat, "D", this.status ? 1 : 0,
+        return String.format(Deadline.stringFormat, "D", this.isMarked ? 1 : 0,
                 this.taskDescription, this.dueDate);
     }
 
     @Override
     public String toString() {
-        return String.format("[D][%s] %s (by: %s)", super.status ? "X" : " ",
+        return String.format("[D][%s] %s (by: %s)", super.isMarked ? "X" : " ",
                 super.taskDescription,
                 this.dueDate.format(dateFormatter));
     }

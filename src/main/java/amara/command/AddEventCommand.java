@@ -24,10 +24,13 @@ public class AddEventCommand extends Command {
     }
 
     /**
-     * Executes the {@code Command}.
+     * Adds the given {@link Event} task to the list of tasks and
+     * generates the {@code String} for the ui.
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {

@@ -17,22 +17,25 @@ import amara.ui.Ui;
  */
 public class UnmarkCommand extends Command {
     private static final String MESSAGE = "OK, I've marked this task as not done yet:\n  %s";
-    private final int index;
+    private final int taskIndex;
 
-    public UnmarkCommand(int index) {
-        this.index = index - 1;
+    public UnmarkCommand(int taskIndex) {
+        this.taskIndex = taskIndex - 1;
     }
 
     /**
-     * Executes the {@code Command}.
+     * Unmarks the {@link Task} at the given {@code taskIndex}
+     * and generates the {@code String} for the UI handler.
+     * 
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
-            Task task = tasks.get(this.index);
+            Task task = tasks.get(this.taskIndex);
             task.unmarkTask();
             String message = String.format(UnmarkCommand.MESSAGE, task);
             ui.display(message);

@@ -24,10 +24,13 @@ public class FindCommand extends Command {
     }
 
     /**
-     * Executes the {@code Command}.
+     * Finds all of the {@code Task} in the given task list and
+     * generates the message for the ui.
+     * 
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {

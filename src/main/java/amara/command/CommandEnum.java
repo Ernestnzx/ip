@@ -18,7 +18,8 @@ public enum CommandEnum {
     HELP;
 
     /**
-     * Convert a given string into the corresponding {@code enum}.
+     * Converts a given string into the corresponding {@code enum}.
+     *
      * @param commandString
      * @return Enumeration of the provided string.
      * @throws AmaraException

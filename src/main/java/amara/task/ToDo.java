@@ -14,18 +14,18 @@ public class ToDo extends Task {
         super(taskDescription, false);
     }
 
-    public ToDo(boolean status, String taskDescription) {
-        super(taskDescription, status);
+    public ToDo(boolean isMarked, String taskDescription) {
+        super(taskDescription, isMarked);
     }
 
     @Override
     public String getSavedFormat() {
-        return String.format(ToDo.stringFormat, "T", this.status ? 1 : 0,
+        return String.format(ToDo.stringFormat, "T", this.isMarked ? 1 : 0,
                 this.taskDescription);
     }
 
     @Override
     public String toString() {
-        return String.format("[T][%s] %s", this.status ? "X" : " ", this.taskDescription);
+        return String.format("[T][%s] %s", this.isMarked ? "X" : " ", this.taskDescription);
     }
 }

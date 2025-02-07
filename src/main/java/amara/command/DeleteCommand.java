@@ -18,22 +18,25 @@ import amara.ui.Ui;
 public class DeleteCommand extends Command {
     private static final String MESSAGE = "Noted. I've removed this task:\n"
             + "  %s\nNow you have %d tasks in the list.";
-    private final int index;
+    private final int taskIndex;
 
-    public DeleteCommand(int index) {
-        this.index = index - 1;
+    public DeleteCommand(int taskIndex) {
+        this.taskIndex = taskIndex - 1;
     }
 
     /**
-     * Executes the {@code Command}.
+     * Removes a {@link Task} at a given {@code taskIndex} and
+     * generates a {@ String} for the ui.
+     * 
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         try {
-            Task task = tasks.remove(this.index);
+            Task task = tasks.remove(this.taskIndex);
             String message = String.format(DeleteCommand.MESSAGE, task, tasks.size());
             ui.display(message);
             return message;
