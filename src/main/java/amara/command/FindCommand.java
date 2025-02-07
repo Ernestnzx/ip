@@ -26,7 +26,7 @@ public class FindCommand extends Command {
     /**
      * Finds all of the {@code Task} in the given task list and
      * generates the message for the ui.
-     * 
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.

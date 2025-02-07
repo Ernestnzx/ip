@@ -26,7 +26,7 @@ public class AddToDoCommand extends Command {
     /**
      * Adds the given {@link ToDo} task to the list of tasks and
      * generates the {@code String} for the ui.
-     * 
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.

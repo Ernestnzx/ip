@@ -23,13 +23,13 @@ public class ByeCommand extends Command {
     }
 
     /**
-     * Saves all {@link Task} from {@code tasks} to a {@code .txt} 
+     * Saves all {@link Task} from {@code tasks} to a {@code .txt}
      * file for future startup.
      *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
-     * @return Messaage generated and passed to the UI handler. 
+     * @return Messaage generated and passed to the UI handler.
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {

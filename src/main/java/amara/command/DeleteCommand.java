@@ -26,8 +26,8 @@ public class DeleteCommand extends Command {
 
     /**
      * Removes a {@link Task} at a given {@code taskIndex} and
-     * generates a {@ String} for the ui.
-     * 
+     * generates a {@code String} for the ui.
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.

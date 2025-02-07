@@ -15,9 +15,9 @@ import amara.ui.Ui;
  */
 public class ListCommand extends Command {
     /**
-     * Collects all {@link Task} descriptions and 
+     * Collects all {@link Task} descriptions and
      * generate the string for the ui.
-     * 
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.

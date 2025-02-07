@@ -26,7 +26,7 @@ public class UnmarkCommand extends Command {
     /**
      * Unmarks the {@link Task} at the given {@code taskIndex}
      * and generates the {@code String} for the UI handler.
-     * 
+     *
      * @param tasks List of tasks.
      * @param ui UI handler.
      * @param storage To store the given List of tasks.
