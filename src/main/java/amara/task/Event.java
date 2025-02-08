@@ -11,8 +11,9 @@ import java.time.format.DateTimeFormatter;
  * </p>
  */
 public class Event extends Task {
-    private static final String stringFormat = "%s,%d,%s,%s,%s";
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final String STRING_FORMAT = "%s,%d,%s,%s,%s";
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final int SORTING_ORDER = 2;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
@@ -46,15 +47,20 @@ public class Event extends Task {
 
     @Override
     public String getSavedFormat() {
-        return String.format(Event.stringFormat, "E", this.isMarked ? 1 : 0,
+        return String.format(Event.STRING_FORMAT, "E", this.isMarked ? 1 : 0,
                 this.taskDescription, this.startDate, this.endDate);
+    }
+
+    @Override
+    public int getSortingOrder() {
+        return Event.SORTING_ORDER;
     }
 
     @Override
     public String toString() {
         return String.format("[E][%s] %s (from: %s to: %s)", super.isMarked ? "X" : " ",
                 super.taskDescription,
-                this.startDate.format(dateFormatter),
-                this.endDate.format(dateFormatter));
+                this.startDate.format(DATE_FORMATTER),
+                this.endDate.format(DATE_FORMATTER));
     }
 }

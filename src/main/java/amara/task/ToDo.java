@@ -9,6 +9,7 @@ package amara.task;
  */
 public class ToDo extends Task {
     private static final String stringFormat = "%s,%d,%s";
+    private static final int SORTING_ORDER = 0;
 
     public ToDo(String taskDescription) {
         super(taskDescription, false);
@@ -22,6 +23,11 @@ public class ToDo extends Task {
     public String getSavedFormat() {
         return String.format(ToDo.stringFormat, "T", this.isMarked ? 1 : 0,
                 this.taskDescription);
+    }
+
+    @Override
+    public int getSortingOrder() {
+        return ToDo.SORTING_ORDER;
     }
 
     @Override

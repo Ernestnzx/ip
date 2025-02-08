@@ -48,6 +48,8 @@ public class Parser {
             return new FindCommand(Parser.getStringQuery(commandParams));
         case HELP:
             return new HelpCommand();
+        case SORT:
+            return new SortCommand();
         default:
             throw AmaraException.invalidCommand();
         }
