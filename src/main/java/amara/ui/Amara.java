@@ -14,7 +14,7 @@ import amara.task.Task;
  */
 public class Amara {
     private static final String FILE_PATH = System.getProperty("user.dir") + "/data/taskfile.txt";
-    private static final String GREETING_MESSAGE = "Hello I'm Amara\nWhat can I do for you?";
+    private static final String GREETING_MESSAGE = "Hihi I'm Amara the eevee!\n What can I do for you hehe <3";
     private ArrayList<Task> tasks;
     private Storage storage;
     private Ui ui;

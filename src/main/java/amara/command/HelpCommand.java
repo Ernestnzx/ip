@@ -23,6 +23,8 @@ public class HelpCommand extends Command {
                 + " I'll add a new event task to your list!\n\n"
                 + "  <delete Index>: I'll remove a task from the given index!\n\n"
                 + "  <find query>: I'll return a list of tasks of the word you want!\n\n"
+                + "  <Sort>: I'll sort your task list by To-Do, Deadline and Events, I'll also"
+                + " breakt ties for Deadlines and Events by their due date and start times!\n\n"
 
                 + "Note the following format!\n"
                 + "  index: Integer between 0 and size of list.\n"
