@@ -9,7 +9,7 @@ package amara.task;
  * for storage formatting.
  * </p>
  */
-public abstract class Task implements Comparable<Task> {
+public abstract class Task {
     protected String taskDescription;
     protected boolean isMarked;
 
@@ -38,12 +38,6 @@ public abstract class Task implements Comparable<Task> {
 
     public boolean getisMarked() {
         return this.isMarked;
-    }
-
-    @Override
-    public int compareTo(Task otherTask) {
-        int compareValue = Integer.compare(this.getSortingOrder(), otherTask.getSortingOrder());
-        return compareValue != 0 ? compareValue : this.getTaskDescription().compareTo(otherTask.getTaskDescription());
     }
 
     public abstract String getSavedFormat();

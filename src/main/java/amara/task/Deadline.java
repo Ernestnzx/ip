@@ -39,6 +39,10 @@ public class Deadline extends Task {
         this.dueDate = dueDate;
     }
 
+    public LocalDateTime getDueDate() {
+        return this.dueDate;
+    }
+
     @Override
     public String getSavedFormat() {
         return String.format(Deadline.STRING_FORMAT, "D", this.isMarked ? 1 : 0,

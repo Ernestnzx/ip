@@ -45,6 +45,10 @@ public class Event extends Task {
         this.endDate = endDate;
     }
 
+    public LocalDateTime getStartDate() {
+        return this.startDate;
+    }
+
     @Override
     public String getSavedFormat() {
         return String.format(Event.STRING_FORMAT, "E", this.isMarked ? 1 : 0,

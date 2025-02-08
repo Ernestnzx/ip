@@ -1,10 +1,14 @@
 package amara.command;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.stream.IntStream;
 
 import amara.storage.Storage;
+import amara.task.Deadline;
+import amara.task.Event;
 import amara.task.Task;
 import amara.ui.Ui;
 
@@ -26,7 +30,9 @@ public class SortCommand extends Command {
      */
     @Override
     public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
-        Collections.sort(tasks);
+        // Generating the sorted list paritioned by ToDo, Deadline and Event
+        // Deadline and Event are sorted by their due date and starting time respectively.
+        SortCommand.sortingTaskList(tasks);
         String header = "Here is your sorted task list based on type!\n";
         String taskList = IntStream
                 .range(0, tasks.size())
@@ -36,5 +42,21 @@ public class SortCommand extends Command {
         String formattedTaskList = header + taskList;
         ui.display(formattedTaskList);
         return formattedTaskList;
+    }
+
+    private static void sortingTaskList(ArrayList<Task> tasks) {
+        Comparator<Task> taskComparator = Comparator
+                .comparing(Task::getSortingOrder) // Sort by type order
+                .thenComparing(task -> {
+                    if (task instanceof Deadline) {
+                        return ((Deadline) task).getDueDate();
+                    }
+                    if (task instanceof Event) {
+                        return ((Event) task).getStartDate();
+                    }
+                    return LocalDateTime.MIN; // Ensures all cases return LocalDateTime
+                }, Comparator.naturalOrder())
+                .thenComparing(Task::getTaskDescription);
+        Collections.sort(tasks, taskComparator);
     }
 }
