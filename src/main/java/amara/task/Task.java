@@ -16,7 +16,7 @@ public abstract class Task {
     /**
      * Constructs a {@code Task} with the given description and completion isMarked.
      *
-     * @param taskDescription The description of the task.
+     * @param taskDescription   The description of the task.
      * @param isMarked          The completion status of the task.
      */
     public Task(String taskDescription, boolean isMarked) {
@@ -41,4 +41,6 @@ public abstract class Task {
     }
 
     public abstract String getSavedFormat();
+
+    public abstract int getSortingOrder();
 }

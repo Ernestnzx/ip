@@ -12,8 +12,9 @@ import java.time.format.DateTimeFormatter;
  * </p>
  */
 public class Deadline extends Task {
-    private static final String stringFormat = "%s,%d,%s,%s";
-    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final String STRING_FORMAT = "%s,%d,%s,%s";
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("MMM d yyyy, h:mm a");
+    private static final int SORTING_ORDER = 1;
     private LocalDateTime dueDate;
 
     /**
@@ -38,16 +39,25 @@ public class Deadline extends Task {
         this.dueDate = dueDate;
     }
 
+    public LocalDateTime getDueDate() {
+        return this.dueDate;
+    }
+
     @Override
     public String getSavedFormat() {
-        return String.format(Deadline.stringFormat, "D", this.isMarked ? 1 : 0,
+        return String.format(Deadline.STRING_FORMAT, "D", this.isMarked ? 1 : 0,
                 this.taskDescription, this.dueDate);
+    }
+
+    @Override
+    public int getSortingOrder() {
+        return Deadline.SORTING_ORDER;
     }
 
     @Override
     public String toString() {
         return String.format("[D][%s] %s (by: %s)", super.isMarked ? "X" : " ",
                 super.taskDescription,
-                this.dueDate.format(dateFormatter));
+                this.dueDate.format(Deadline.DATE_FORMATTER));
     }
 }
