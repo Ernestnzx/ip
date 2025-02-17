@@ -23,7 +23,7 @@ public class Amara {
      * Creates a new {@code Amara} bot with a instantiated
      * {@code Task} list if a valid file format is given.
      */
-    Amara(String filePath) {
+    private Amara(String filePath) {
         this.ui = new Ui(filePath);
         try {
             this.storage = new Storage(filePath);
@@ -64,7 +64,7 @@ public class Amara {
      * Entry point of the application.
      */
     public static void main(String[] args) {
-        new Amara(Amara.FILE_PATH).start();
+        new Amara().start();
     }
 
     /**
