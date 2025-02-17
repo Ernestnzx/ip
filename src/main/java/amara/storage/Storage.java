@@ -1,6 +1,7 @@
 package amara.storage;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,6 +29,17 @@ public class Storage {
         this.filePath = filePath;
     }
 
+    private void makeDataDirectory() throws AmaraException {
+        File file = new File(this.filePath).getParentFile();
+        if (!file.exists()) {
+            try {
+                file.mkdir();
+            } catch (SecurityException e) {
+                throw AmaraException.fileWriteException();
+            }
+        }
+    }
+
     /**
      * Writes all of the task in the given task list into the file
      * that will be read in when AmaraBot starts up
@@ -36,15 +48,13 @@ public class Storage {
      * @throws AmaraException More specifically a AmaraException.fileWriteException
      */
     public void saveList(ArrayList<Task> tasks) throws AmaraException {
-        StringBuilder stringBuilder = new StringBuilder();
-        for (int i = 0; i < tasks.size(); i++) {
-            stringBuilder.append(tasks.get(i).getSavedFormat());
-            if (i < tasks.size() - 1) {
-                stringBuilder.append("\n");
-            }
-        }
+        String savedTaskListString = tasks.stream()
+                .map(x -> x.getSavedFormat())
+                .reduce((x, y) -> x + '\n' + y)
+                .orElse("");
+        this.makeDataDirectory();
         try (FileWriter writer = new FileWriter(this.filePath)) {
-            writer.write(stringBuilder.toString());
+            writer.write(savedTaskListString);
         } catch (IOException e) {
             throw AmaraException.fileWriteException();
         }
@@ -58,6 +68,7 @@ public class Storage {
      * @throws AmaraException Thrown if Task format is not consistent.
      */
     public ArrayList<Task> readList() throws IOException, AmaraException {
+        this.makeDataDirectory();
         BufferedReader br = new BufferedReader(new FileReader(this.filePath));
         String line = "";
         ArrayList<Task> tasks = new ArrayList<Task>();
@@ -82,7 +93,8 @@ public class Storage {
                     tasks.add(new Event(status, description, fromDateTime, toDateTime));
                     break;
                 default:
-                    throw AmaraException.fileFormatException();
+                    // Leaving this empty because we should try to
+                    // read all file contents unless an error is thrown.
                 }
             } catch (Exception e) {
                 br.close();
