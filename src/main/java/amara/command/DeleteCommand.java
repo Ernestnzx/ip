@@ -39,6 +39,7 @@ public class DeleteCommand extends Command {
             Task task = tasks.remove(this.taskIndex);
             String message = String.format(DeleteCommand.MESSAGE, task, tasks.size());
             ui.display(message);
+            storage.saveList(tasks);
             return message;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();

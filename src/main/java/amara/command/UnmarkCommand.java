@@ -39,6 +39,7 @@ public class UnmarkCommand extends Command {
             task.unmarkTask();
             String message = String.format(UnmarkCommand.MESSAGE, task);
             ui.display(message);
+            storage.saveList(tasks);
             return message;
         } catch (IndexOutOfBoundsException e) {
             throw AmaraException.indexOutOfBounds();

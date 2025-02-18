@@ -2,6 +2,7 @@ package amara.command;
 
 import java.util.ArrayList;
 
+import amara.exceptions.AmaraException;
 import amara.storage.Storage;
 import amara.task.Event;
 import amara.task.Task;
@@ -33,10 +34,11 @@ public class AddEventCommand extends Command {
      * @return Messaage generated and passed to the UI handler.
      */
     @Override
-    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         tasks.add(this.event);
         String message = String.format(AddEventCommand.MESSAGE, this.event, tasks.size());
         ui.display(message);
+        storage.saveList(tasks);
         return message;
     }
 }

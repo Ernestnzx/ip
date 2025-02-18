@@ -2,6 +2,7 @@ package amara.command;
 
 import java.util.ArrayList;
 
+import amara.exceptions.AmaraException;
 import amara.storage.Storage;
 import amara.task.Task;
 import amara.task.ToDo;
@@ -33,10 +34,11 @@ public class AddToDoCommand extends Command {
      * @return Messaage generated and passed to the UI handler.
      */
     @Override
-    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         tasks.add(this.toDo);
         String message = String.format(AddToDoCommand.MESSAGE, this.toDo, tasks.size());
         ui.display(message);
+        storage.saveList(tasks);
         return message;
     }
 }

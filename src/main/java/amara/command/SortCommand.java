@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.stream.IntStream;
 
+import amara.exceptions.AmaraException;
 import amara.storage.Storage;
 import amara.task.Deadline;
 import amara.task.Event;
@@ -29,7 +30,7 @@ public class SortCommand extends Command {
      * @return Messaage generated and passed to the UI handler.
      */
     @Override
-    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) {
+    public String execute(ArrayList<Task> tasks, Ui ui, Storage storage) throws AmaraException {
         // Generating the sorted list paritioned by ToDo, Deadline and Event
         // Deadline and Event are sorted by their due date and starting time respectively.
         SortCommand.sortingTaskList(tasks);
@@ -41,6 +42,7 @@ public class SortCommand extends Command {
                 .orElse("  <You have no tasks at the moment, you may rest for now...>");
         String formattedTaskList = header + taskList;
         ui.display(formattedTaskList);
+        storage.saveList(tasks);
         return formattedTaskList;
     }
 
