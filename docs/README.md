@@ -37,7 +37,7 @@ Got it. I've added this task:
 Now you have x tasks in your list.
 ```
 > [!Important]
-> Deadline Task Description cannot be empty.\
+> Deadline Task Description cannot be empty.
 > Datetime format: `YYYY-MM-DD HHMM`
 >
 
@@ -50,7 +50,7 @@ Got it. I've added this task:
 Now you have x tasks in your list.
 ```
 > [!Important]
-> - Event Task Description cannot be empty.\
+> - Event Task Description cannot be empty.
 > - Datetime format: `YYYY-MM-DD HHMM`
 
 ## listing all tasks: `list`
@@ -128,5 +128,5 @@ Here is your sorted task list based on type!
 6.) [E][X] project meeting (from: Mar 25 2025, 2:00 PM to: Mar 25 2025, 4:00 PM) 
 ```
 > [!Note]
-> - When sorting by type, ToDo tasks appear first, followed by Deadlines, then Events. \
+> - When sorting by type, ToDo tasks appear first, followed by Deadlines, then Events.
 > - When sorting by date, tasks are ordered from the earliest due/start time to the latest.
