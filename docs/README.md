@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9739f4c6-e0ea-4fac-9e24-b3e03f918111)# Amara User Guide <3
+# Amara User Guide <3
 
 ![Product Screenshot](Ui.png)
 
