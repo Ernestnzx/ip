@@ -22,7 +22,7 @@ Amara bot will add a uncompleted To Do task to the back of the task list.
 ```
 >> todo CM3221 Disconnection Approach Homework
 Got it. I've added this task:
-  [T][] CM3221 Disconnection Approach Homework
+  [T][ ] CM3221 Disconnection Approach Homework
 Now you have x tasks in your list.
 ```
 > [!Important]
@@ -33,7 +33,7 @@ Amara bot will add a uncompleted Deadline task to the back of the task list.
 ```
 >> deadline CM4215 Bioinorganic Chemistry Tutorial /by 2025-02-20 1300
 Got it. I've added this task:
-  [D][] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
+  [D][ ] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
 Now you have x tasks in your list.
 ```
 > [!Important]
@@ -45,7 +45,7 @@ Amara bot will add a uncompleted To Do task to the back of the task list.
 ```
 >> event CM4288 project meeting /from 2025-02-19 1500 /to 2025-02-19 1600
 Got it. I've added this task:
-  [E][] CM4288 project meeting (from: Feb 19 2025, 3:00pm to: Feb 19 2025, 4:00pm)
+  [E][ ] CM4288 project meeting (from: Feb 19 2025, 3:00pm to: Feb 19 2025, 4:00pm)
 Now you have x tasks in your list.
 ```
 > [!Important]
@@ -57,9 +57,9 @@ Amara bot collects all of the tasks and displays them in a orderly fashion
 ```
 >> list
 Here are the tasks in your list:
-1.) [T][] CM3221 Disconnection Approach Homework
-2.) [D][] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
-3.) [E][] CM4288 project meeting (from: Feb 19 2025, 3:00pm to: Feb 19 2025, 4:00pm)
+1.) [T][ ] CM3221 Disconnection Approach Homework
+2.) [D][ ] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
+3.) [E][ ] CM4288 project meeting (from: Feb 19 2025, 3:00pm to: Feb 19 2025, 4:00pm)
 ```
 > [!Note]
 > - Tasks are displayed in the order they were added.
@@ -79,7 +79,7 @@ Amara bot will unmark a task, setting it back to incomplete.
 ```
 >> unmark 1
 OK, I've marked this task as not done yet:
-  [T][] CM3221 Disconnection Approach Homework
+  [T][ ] CM3221 Disconnection Approach Homework
 ```
 > [!Important]
 > - Task number must be a valid number within the list.
@@ -89,7 +89,7 @@ Amara bot will remove a task from the list based on its task number.
 ```
 >> delete 2
 Noted. I've removed this task:
-  [D][] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
+  [D][ ] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
 Now you have x tasks in your list.
 ```
 
@@ -98,7 +98,7 @@ Amara bot will search for tasks containing the specified keyword.
 ```
 >> find Chemistry
 Here are the matching tasks in your list:
-1. [D][] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
+1. [D][ ] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
 ```
 > [!Note]
 > - Search is case-sensitive.
