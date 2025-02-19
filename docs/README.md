@@ -102,7 +102,7 @@ Here are the matching tasks in your list:
 1. [D][] CM4215 Bioinorganic Chemistry Tutorial (by: Feb 20 2025, 1:00pm)
 ```
 > [!Note]
-> - Search is case-insensitive.
+> - Search is case-sensitive.
 
 ## Sorting the task list: `sort`
 Amara bot will sort the task list based on the following comparisons
