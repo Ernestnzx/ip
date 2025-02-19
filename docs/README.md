@@ -37,9 +37,8 @@ Got it. I've added this task:
 Now you have x tasks in your list.
 ```
 > [!Important]
-> Deadline Task Description cannot be empty.
-> Datetime format: `YYYY-MM-DD HHMM`
->
+> - Deadline Task Description cannot be empty.
+> - Datetime format: `YYYY-MM-DD HHMM`
 
 ## Adding event task: `event descrption /from datetime /to datetime`
 Amara bot will add a uncompleted To Do task to the back of the task list.
@@ -83,7 +82,7 @@ OK, I've marked this task as not done yet:
   [T][] CM3221 Disconnection Approach Homework
 ```
 > [!Important]
-> Task number must be a valid number within the list.
+> - Task number must be a valid number within the list.
 
 ## Deleting a task: `delete index`
 Amara bot will remove a task from the list based on its task number.
