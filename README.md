@@ -7,7 +7,7 @@ Instead of trying to remember things over and over again and letting it stick in
 - ~~Fast~~ **SUPER FAST** to use!
 
 Why wait any longer? Here are the steps to use AmaraBot✨
-1. Download the application [here](https://github.com/Ernestnzx/ip)
+1. Download the application [here](https://github.com/Ernestnzx/ip/releases/tag/A-Release)
 2. Double click on the `jar` file
 3. Save your tasks to the list
 4. ???
